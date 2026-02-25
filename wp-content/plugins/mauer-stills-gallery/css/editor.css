@@ -1,0 +1,128 @@
+.mauer-stills-admin-clearfix:before,
+.mauer-stills-admin-clearfix:after  {
+	content: " ";
+	display: table;
+}
+
+.mauer-stills-admin-clearfix:after {
+	clear: both;
+}
+
+.mauer-stills-admin-clearfix {
+	width:100%;
+}
+
+.mauer-stills-gallery-pswp-in-admin-panel {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: -ms-flex;
+	display: -o-flex;
+	-js-display: flex;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-between;
+
+	padding-top: 10px;
+}
+
+.mauer-stills-gallery-pswp-in-admin-panel>figure {
+	-ms-flex-item-align: center;
+	-ms-align-self: center;
+	align-self: center;
+	text-align: center;
+
+	position: relative;
+	margin: 0 0 30px;
+	padding: 0;
+ }
+
+.mauer-stills-gallery-pswp-in-admin-panel .is-selected {
+	outline: 4px solid #0085ba;
+}
+
+.mauer-stills-gallery-pswp-in-admin-panel .is-selected {
+	z-index: 999;
+}
+
+.mauer-stills-gallery-pswp-img {
+	object-fit: cover;
+}
+
+.has-add-item-button {
+	margin: 8px 0 0;
+}
+
+
+
+.mauer-stills-gallery-pswp-in-admin-panel img {
+	margin-bottom: 21px;
+}
+
+.mauer-stills-gallery-pswp-in-admin-panel .is-selected  img {
+	outline: none;
+}
+
+.mauer-stills-gallery-pswp-in-admin-panel .editor-rich-text {
+	padding: 0;
+	margin-top: -21px;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-size: 12px;
+	line-height: 1.3;
+	text-align: center;
+	background-color: transparent;
+	color: #444;
+}
+
+.mauer-stills-gallery-pswp-in-admin-panel .mauer-stills-gallery-pswp-tile {
+	padding-bottom: 7px;
+}
+
+.mauer-stills-gallery-pswp-in-admin-panel .mauer-stills-gallery-pswp-tile-full {
+	width:100%;
+}
+
+.mauer-stills-gallery-pswp-in-admin-panel .mauer-stills-gallery-pswp-tile-half {
+	width:45.7%;
+}
+
+.blocks-gallery-item.has-add-item-button {
+	width:100%;
+}
+
+.mauer-stills-gallery-pswp>figure:last-of-type,
+.mauer-stills-first-image-in-a-closing-pair-of-halfs {
+	margin-bottom: 0!important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

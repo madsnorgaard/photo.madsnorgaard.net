@@ -1,0 +1,16 @@
+{
+  "name": "narrator-gallery-block-cgb-guten-block",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "cgb-scripts start",
+    "build": "cgb-scripts build",
+    "eject": "cgb-scripts eject"
+  },
+  "dependencies": {
+    "@wordpress/blob": "^2.1.0",
+    "@wordpress/keycodes": "^2.0.5",
+    "cgb-scripts": "1.13.0",
+    "classnames": "^2.2.6"
+  }
+}

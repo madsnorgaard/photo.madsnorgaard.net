@@ -1,0 +1,89 @@
+networks:
+  web:
+    external: true
+  internal:
+    external: false
+
+services:
+   photo_madsnorgaard_db:
+     image: mysql:5.7
+     volumes:
+       - ./wordpress.sql:/docker-entrypoint-initdb.d/init.sql # prepopulate database
+       - db_data:/var/lib/mysql # persist database data inside docker storage
+     restart: always
+     env_file:
+      - .env
+     environment:
+      DOCKER_COMPOSE_YML_LOCATION: ${PWD}
+     container_name: ${WORDPRESS_DOMAIN}_db
+     networks:
+      - internal
+     labels:
+      - traefik.enable=false
+
+   photo_madsnorgaard_phpmyadmin:
+     image: phpmyadmin/phpmyadmin:5.2
+     restart: always
+     environment:
+       PMA_HOST: photo_madsnorgaard_db
+       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+       DOCKER_COMPOSE_YML_LOCATION: ${PWD}
+       UPLOAD_LIMIT: 300M
+     container_name: ${WORDPRESS_DOMAIN}_phpmyadmin
+     labels:
+       - traefik.http.routers.photo_madsnorgaard_phpmyadmin.rule=Host(`phpmyadmin.${WORDPRESS_DOMAIN}`) || Host(`phpmyadmin.madsnorgaard.net`)
+       - traefik.http.routers.photo_madsnorgaard_phpmyadmin.tls=true
+       - traefik.http.routers.photo_madsnorgaard_phpmyadmin.tls.certresolver=lets-encrypt
+       - traefik.port=8080
+     networks:
+       - internal
+       - web
+     depends_on:
+       - photo_madsnorgaard_db
+
+   photo_madsnorgaard_wordpress:
+     depends_on:
+       - photo_madsnorgaard_db
+     image: wordpress:php8.4-apache
+     restart: always
+     environment:
+       WORDPRESS_DB_HOST: photo_madsnorgaard_db:3306
+       WORDPRESS_DB_USER: ${MYSQL_USER}
+       WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
+       WORDPRESS_DB_NAME: ${MYSQL_DATABASE}
+       DOCKER_COMPOSE_YML_LOCATION: ${PWD}
+     volumes:
+       - ./wp-content:/var/www/html/wp-content
+     container_name: ${WORDPRESS_DOMAIN}_wordpress
+     labels:
+       - traefik.http.routers.photo_madsnorgaard_wordpress.rule=Host(`${WORDPRESS_DOMAIN}`) || Host(`www.${WORDPRESS_DOMAIN}`) || Host(`madsnorgaard.net`) || Host(`www.madsnorgaard.net`)
+       - traefik.http.routers.photo_madsnorgaard_wordpress.tls=true
+       - traefik.http.routers.photo_madsnorgaard_wordpress.tls.certresolver=lets-encrypt
+       - traefik.http.routers.web.middlewares=web-www-https-redirect
+       - traefik.port=80
+       - traefik.http.middlewares.web-www-https-redirect.redirectregex.permanent=true
+       - traefik.http.middlewares.web-secure-www-redirect.redirectregex.permanent=true
+     networks:
+       - internal
+       - web
+
+   cli:
+     image: wordpress:cli-php8.4
+     container_name: ${WORDPRESS_DOMAIN}_cli
+     env_file: .env
+     environment:
+       WORDPRESS_DB_HOST: photo_madsnorgaard_db:3306
+       WORDPRESS_DB_USER: "${MYSQL_USER}"
+       WORDPRESS_DB_PASSWORD: "${MYSQL_PASSWORD}"
+       WORDPRESS_DB_NAME: "${MYSQL_DATABASE}"
+     volumes:
+       - ./wp-content:/var/www/html/wp-content
+     networks:
+       - internal
+     depends_on:
+       - photo_madsnorgaard_db
+     profiles:
+       - cli
+
+volumes:
+    db_data: {}

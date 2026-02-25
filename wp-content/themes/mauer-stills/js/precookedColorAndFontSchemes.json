@@ -1,0 +1,106 @@
+{
+
+	"font_scheme_1" : {
+		"bolded_weight" : 500,
+		"font_1_font_source" : "bundled", "font_1_font_weight" : 300, "font_1_font_size" : 17, "font_1_line_height" : 1.65,
+		"font_2_font_source" : "bundled", "font_2_font_weight" : 400, "font_2_size_tweak" : 100,
+		"font_3_font_source" : "bundled", "font_3_font_weight" : 400, "font_3_buttons_weight" : 700, "font_3_size_tweak" : 100,
+		"font_4_font_source" : "google", "font_4_google_font_name" : "EB Garamond", "font_4_font_weight" : 400, "font_4_size_tweak" : 100,
+		"font_5_font_source" : "google", "font_5_google_font_name" : "EB Garamond", "font_5_font_weight" : 400, "font_5_size_tweak" : 100
+	},
+
+	"font_scheme_2" : {
+		"bolded_weight" : 600,
+		"font_1_font_source" : "google", "font_1_google_font_name" : "Barlow", "font_1_font_weight" : 400, "font_1_font_size" : 17, "font_1_line_height" : 1.7,
+		"font_2_font_source" : "google", "font_2_google_font_name" : "Barlow", "font_2_font_weight" : 500, "font_2_size_tweak" : 96,
+		"font_3_font_source" : "google", "font_3_google_font_name" : "Barlow", "font_3_font_weight" : 500, "font_3_buttons_weight" : 600, "font_3_size_tweak" : 96,
+		"font_4_font_source" : "google", "font_4_google_font_name" : "Barlow", "font_4_font_weight" : 500, "font_4_size_tweak" : 84,
+		"font_5_font_source" : "google", "font_5_google_font_name" : "Barlow", "font_5_font_weight" : 500, "font_5_size_tweak" : 84
+	},
+
+	"font_scheme_3" : {
+		"bolded_weight" : 500,
+		"font_1_font_source" : "bundled", "font_1_font_weight" : 400, "font_1_font_size" : 17, "font_1_line_height" : 1.65,
+		"font_2_font_source" : "google", "font_2_google_font_name" : "Playfair Display", "font_2_font_weight" : 400, "font_2_size_tweak" : 92,
+		"font_3_font_source" : "bundled", "font_3_font_weight" : 400, "font_3_buttons_weight" : 700, "font_3_size_tweak" : 100,
+		"font_4_font_source" : "google", "font_4_google_font_name" : "Playfair Display", "font_4_font_weight" : 400, "font_4_size_tweak" : 88,
+		"font_5_font_source" : "google", "font_5_google_font_name" : "Playfair Display", "font_5_font_weight" : 400, "font_5_size_tweak" : 88
+	},
+
+	"font_scheme_4" : {
+		"bolded_weight" : 500,
+		"font_1_font_source" : "google", "font_1_google_font_name" : "Roboto", "font_1_font_weight" : 400, "font_1_font_size" : 16, "font_1_line_height" : 1.7,
+		"font_2_font_source" : "google", "font_2_google_font_name" : "Roboto", "font_2_font_weight" : 400, "font_2_size_tweak" : 96,
+		"font_3_font_source" : "google", "font_3_google_font_name" : "Roboto", "font_3_font_weight" : 400, "font_3_buttons_weight" : 500, "font_3_size_tweak" : 96,
+		"font_4_font_source" : "google", "font_4_google_font_name" : "Roboto", "font_4_font_weight" : 400, "font_4_size_tweak" : 90,
+		"font_5_font_source" : "google", "font_5_google_font_name" : "Roboto", "font_5_font_weight" : 400, "font_5_size_tweak" : 102
+	},
+
+
+	"color_scheme_1" : {
+		"background_color" : "#fbfbfb",
+		"primary_color" : "#222222",
+		"secondary_color" : "#969696",
+		"active_menu_item_color" : "#969696",
+		"links_color" : "#222222",
+		"links_underline_color" : "#c1c1c1",
+		"links_hover_underline_color" : "#222222",
+		"buttons_color" : "#222222",
+		"buttons_text_color" : "#fbfbfb",
+		"header_dash_color" : "#c1c1c1",
+		"page_title_dash_color" : "#222222",
+		"input_placeholders_color" : "#969696",
+		"input_underline_color" : "#e5e5e5",
+		"pre_footer_background_color" : "#f0f0f0",
+		"pre_footer_headings_color" : "#222222",
+		"pre_footer_text_color" : "#777777",
+		"pre_footer_details_color" : "#c1c1c1",
+		"pre_footer_buttons_color": "#222222",
+		"pre_footer_buttons_text_color": "#fbfbfb"
+	},
+
+	"color_scheme_2" : {
+		"background_color" : "#fefef8",
+		"primary_color" : "#282828",
+		"secondary_color" : "#c74649",
+		"active_menu_item_color" : "#c74649",
+		"links_color" : "#777777",
+		"links_underline_color" : "#b3b3b3",
+		"links_hover_underline_color" : "#484848",
+		"buttons_color" : "#181818",
+		"buttons_text_color" : "#fefef8",
+		"header_dash_color" : "#484848",
+		"page_title_dash_color" : "#484848",
+		"input_placeholders_color" : "#777777",
+		"input_underline_color" : "#999999",
+		"pre_footer_background_color" : "#262728",
+		"pre_footer_headings_color" : "#fffffa",
+		"pre_footer_text_color" : "#fffffa",
+		"pre_footer_details_color" : "#cfcfc8",
+		"pre_footer_buttons_color": "#383838",
+		"pre_footer_buttons_text_color": "#fffffa"
+	},
+
+	"color_scheme_3" : {
+		"background_color" : "#ffffff",
+		"primary_color" : "#273a3d",
+		"secondary_color" : "#BA964A",
+		"active_menu_item_color" : "#BA964A",
+		"links_color" : "#273a3d",
+		"links_underline_color" : "#a2a2a2",
+		"links_hover_underline_color" : "#273a3d",
+		"buttons_color" : "#273a3d",
+		"buttons_text_color" : "#ffffff",
+		"header_dash_color" : "#b3b3b3",
+		"page_title_dash_color" : "#b3b3b3",
+		"input_placeholders_color" : "#d1d1d1",
+		"input_underline_color" : "#d1d1d1",
+		"pre_footer_background_color" : "#f9f9f9",
+		"pre_footer_headings_color" : "#273a3d",
+		"pre_footer_text_color" : "#273a3d",
+		"pre_footer_details_color" : "#a2a2a2",
+		"pre_footer_buttons_color": "#273a3d",
+		"pre_footer_buttons_text_color": "#ffffff"
+	}
+
+}

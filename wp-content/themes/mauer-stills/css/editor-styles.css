@@ -1,0 +1,136 @@
+body, body p {
+	font-family: 'mauerHKG', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 17px;
+	font-weight: 300;
+	line-height: 1.7;
+	letter-spacing: .005em;
+	color: #222;
+
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	-ms-word-wrap: break-word;
+	word-wrap: break-word;
+
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+}
+.mce-content-body {
+	line-height: 1.7; /* prevents line height jump when entering fields to edit */
+}
+
+.mce-content-body,
+.wp-block {
+	max-width: 800px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'mauerHKG', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 38px;
+	letter-spacing: 0.02em;
+	font-weight: 400;
+	line-height: 1.45;
+	color: #222;
+}
+
+h5, h6 {
+	text-transform: uppercase;
+	letter-spacing: 0.16em;
+	font-weight: 500;
+}
+
+h1 {margin: 48px 0 28px;}
+h2 {margin: 49px 0 28px;}
+h3 {margin: 50px 0 28px;}
+h4 {margin: 57px 0 29px;}
+h5 {margin: 61px 0 30px;}
+h6 {margin: 61px 0 30px;}
+
+h1 {font-size:33px;}
+h2 {font-size:28px;}
+h3 {font-size:23px;}
+h4 {font-size:19px;}
+h5 {font-size:14px;}
+h6 {font-size:13px;}
+
+b, strong {
+	font-weight: 500;
+}
+
+.editor-post-title__input {
+	font-family: 'EB Garamond', 'Cormorant Garamond', 'Adobe Garamond', 'Garamond', Times, serif;
+	font-weight: 400;
+	font-size: 53px;
+	line-height: 1.26;
+	letter-spacing: .017em;
+	word-spacing: .02em;
+	text-align: center;
+}
+.editor-post-title__block {margin-bottom: 10px;}
+
+blockquote,
+.wp-block-quote:not(.is-large):not(.is-style-large) {
+	padding: 14px 0 18px 39px;
+	margin: 0 0 20px;
+	border-left: 1px solid #222;
+}
+
+blockquote,
+.wp-block-quote__citation {
+	color: #222;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1.61;
+}
+
+blockquote p,
+.wp-block-quote__citation {
+	color: #3a3a3a;
+	font-size: 23px;
+}
+
+.editor-styles-wrapper .wp-block-quote:not(.is-large):not(.is-style-large) {
+	border-left: 4px solid #000;
+	padding-left: 1em;
+}
+.wp-block-quote {
+	margin: 20px 0;
+}
+.wp-block-quote__citation {
+	margin-top: -21px;
+}
+
+.wp-block-button__link {
+	display: block;
+	border: 0;
+	text-align: center;
+	color:#fff;
+	background-color: #222;
+	padding: 19px 34px 19px 40px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.4em;
+	text-decoration: none;
+	-webkit-transition: all .1s linear;
+	-o-transition: all .1s linear;
+	transition: all .1s linear;
+
+	font-size: 13px;
+	border-radius: 99999px;
+}
+
+.wp-block-cover p {
+	line-height: 1.25;
+}
+
+.wp-block-cover p a {
+	color: #fff;
+	text-decoration: none;
+	border-bottom: 1px solid #c1c1c1;
+}
+
+.wp-block-cover p a:hover,
+.wp-block-cover p a:focus {
+	border-bottom-color: #222;
+}
