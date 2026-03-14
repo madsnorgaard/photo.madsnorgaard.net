@@ -6,7 +6,7 @@ networks:
 
 services:
    photo_madsnorgaard_db:
-     image: mysql:5.7
+     image: mysql:8.0
      volumes:
        - ./wordpress.sql:/docker-entrypoint-initdb.d/init.sql # prepopulate database
        - db_data:/var/lib/mysql # persist database data inside docker storage
@@ -57,7 +57,7 @@ services:
        - ./wp-content:/var/www/html/wp-content
      container_name: ${WORDPRESS_DOMAIN}_wordpress
      labels:
-       - traefik.http.routers.photo_madsnorgaard_wordpress.rule=Host(`${WORDPRESS_DOMAIN}`) || Host(`www.${WORDPRESS_DOMAIN}`) || Host(`madsnorgaard.net`) || Host(`www.madsnorgaard.net`)
+       - traefik.http.routers.photo_madsnorgaard_wordpress.rule=Host(`${WORDPRESS_DOMAIN}`) || Host(`www.${WORDPRESS_DOMAIN}`)
        - traefik.http.routers.photo_madsnorgaard_wordpress.tls=true
        - traefik.http.routers.photo_madsnorgaard_wordpress.tls.certresolver=lets-encrypt
        - traefik.http.routers.web.middlewares=web-www-https-redirect
@@ -70,6 +70,7 @@ services:
 
    cli:
      image: wordpress:cli-php8.4
+     user: "33:33"
      container_name: ${WORDPRESS_DOMAIN}_cli
      env_file: .env
      environment:
