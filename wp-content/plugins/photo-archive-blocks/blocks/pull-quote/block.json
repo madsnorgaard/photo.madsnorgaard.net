@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "photo-archive-blocks/pull-quote",
+  "version": "1.0.0",
+  "title": "Pull Quote",
+  "category": "text",
+  "description": "Documentary-style pull quote with optional attribution.",
+  "textdomain": "photo-archive-blocks",
+  "attributes": {
+    "quote": {
+      "type": "string",
+      "source": "html",
+      "selector": "blockquote p"
+    },
+    "attribution": {
+      "type": "string",
+      "source": "html",
+      "selector": "cite"
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": ["wide"]
+  },
+  "editorScript": "file:./index.js",
+  "style": "file:./style.css"
+}

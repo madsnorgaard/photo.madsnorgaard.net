@@ -1,0 +1,339 @@
+/* Photo Archive — main.css */
+
+/* ─── Reset & base ─────────────────────────────────────────────────── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--wp--preset--color--bg);
+  color: var(--wp--preset--color--text);
+  font-family: var(--wp--preset--font-family--ui);
+  font-size: var(--wp--preset--font-size--base);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ─── Archive ledger ────────────────────────────────────────────────── */
+
+.archive-ledger {
+  width: 100%;
+  max-width: var(--wp--style--global--wide-size);
+  margin: 0 auto;
+  padding: 0 var(--wp--preset--spacing--6);
+}
+
+.archive-header {
+  display: flex;
+  align-items: baseline;
+  gap: var(--wp--preset--spacing--8);
+  padding: var(--wp--preset--spacing--12) 0 var(--wp--preset--spacing--6);
+  border-bottom: 1px solid var(--wp--preset--color--border);
+  margin-bottom: var(--wp--preset--spacing--6);
+}
+
+.archive-header .archive-title {
+  font-family: var(--wp--preset--font-family--display);
+  font-size: var(--wp--preset--font-size--4xl);
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.archive-header .archive-count {
+  font-family: var(--wp--preset--font-family--mono);
+  font-size: var(--wp--preset--font-size--sm);
+  color: var(--wp--preset--color--muted);
+}
+
+/* ─── Archive row (ledger line) ─────────────────────────────────────── */
+
+.archive-row {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: var(--wp--preset--spacing--6);
+  align-items: start;
+  padding: var(--wp--preset--spacing--4) 0;
+  border-bottom: 1px solid var(--wp--preset--color--border);
+  cursor: pointer;
+  transition: background 150ms ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.archive-row:hover {
+  background: rgba(196, 30, 58, 0.03);
+}
+
+.archive-row:hover .archive-row__thumb img {
+  transform: scale(1.05);
+}
+
+.archive-row__thumb {
+  width: 80px;
+  height: 56px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--wp--preset--color--border);
+}
+
+.archive-row__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 200ms ease;
+}
+
+.archive-row__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.archive-row__number {
+  font-family: var(--wp--preset--font-family--mono);
+  font-size: var(--wp--preset--font-size--xs);
+  color: var(--wp--preset--color--accent);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.archive-row__title {
+  font-family: var(--wp--preset--font-family--display);
+  font-size: var(--wp--preset--font-size--lg);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.archive-row__secondary {
+  font-family: var(--wp--preset--font-family--mono);
+  font-size: var(--wp--preset--font-size--xs);
+  color: var(--wp--preset--color--muted);
+}
+
+/* ─── Single photo — dossier view ───────────────────────────────────── */
+
+.photo-dossier {
+  max-width: var(--wp--style--global--wide-size);
+  margin: 0 auto;
+  padding: var(--wp--preset--spacing--8) var(--wp--preset--spacing--6);
+}
+
+.photo-dossier__image {
+  width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  object-position: left;
+}
+
+/* View transition: the expanding photo */
+.archive-row__thumb img {
+  view-transition-name: none; /* set dynamically per photo via inline style */
+}
+
+.photo-dossier__image {
+  view-transition-name: none; /* set dynamically via inline style */
+}
+
+.photo-dossier__header {
+  display: flex;
+  align-items: baseline;
+  gap: var(--wp--preset--spacing--4);
+  margin: var(--wp--preset--spacing--6) 0 var(--wp--preset--spacing--4);
+  border-bottom: 1px solid var(--wp--preset--color--border);
+  padding-bottom: var(--wp--preset--spacing--4);
+}
+
+.photo-dossier__number {
+  font-family: var(--wp--preset--font-family--mono);
+  font-size: var(--wp--preset--font-size--sm);
+  color: var(--wp--preset--color--accent);
+  font-weight: 500;
+}
+
+.photo-dossier__title {
+  font-family: var(--wp--preset--font-family--display);
+  font-size: var(--wp--preset--font-size--3xl);
+  font-weight: 700;
+  margin: 0;
+}
+
+.photo-dossier__facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--wp--preset--spacing--4);
+  margin-bottom: var(--wp--preset--spacing--8);
+}
+
+.photo-dossier__fact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.photo-dossier__fact-label {
+  font-family: var(--wp--preset--font-family--mono);
+  font-size: var(--wp--preset--font-size--xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--wp--preset--color--muted);
+}
+
+.photo-dossier__fact-value {
+  font-size: var(--wp--preset--font-size--sm);
+}
+
+.photo-dossier__caption {
+  max-width: 640px;
+  line-height: 1.7;
+  font-size: var(--wp--preset--font-size--lg);
+}
+
+/* ─── Site header ────────────────────────────────────────────────────── */
+
+.site-header {
+  border-bottom: 1px solid var(--wp--preset--color--border);
+  padding: var(--wp--preset--spacing--4) var(--wp--preset--spacing--6);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.site-header__logo {
+  font-family: var(--wp--preset--font-family--mono);
+  font-size: var(--wp--preset--font-size--sm);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--wp--preset--color--text);
+  text-decoration: none;
+}
+
+.site-header__logo span {
+  color: var(--wp--preset--color--accent);
+}
+
+.site-nav {
+  display: flex;
+  gap: var(--wp--preset--spacing--6);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav a {
+  font-family: var(--wp--preset--font-family--mono);
+  font-size: var(--wp--preset--font-size--xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--wp--preset--color--muted);
+  text-decoration: none;
+  transition: color 150ms;
+}
+
+.site-nav a:hover {
+  color: var(--wp--preset--color--text);
+}
+
+/* ─── Filter bar ─────────────────────────────────────────────────────── */
+
+.archive-filters {
+  display: flex;
+  gap: var(--wp--preset--spacing--3);
+  flex-wrap: wrap;
+  margin-bottom: var(--wp--preset--spacing--6);
+}
+
+.filter-pill {
+  font-family: var(--wp--preset--font-family--mono);
+  font-size: var(--wp--preset--font-size--xs);
+  padding: 0.3em 0.8em;
+  border: 1px solid var(--wp--preset--color--border);
+  background: transparent;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--wp--preset--color--muted);
+  transition: all 150ms;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.filter-pill:hover,
+.filter-pill.is-active {
+  border-color: var(--wp--preset--color--accent);
+  color: var(--wp--preset--color--accent);
+}
+
+/* ─── View transitions ───────────────────────────────────────────────── */
+
+@keyframes fade-in {
+  from { opacity: 0; }
+}
+
+@keyframes fade-out {
+  to { opacity: 0; }
+}
+
+::view-transition-old(root) {
+  animation: 200ms ease fade-out;
+}
+
+::view-transition-new(root) {
+  animation: 300ms ease fade-in;
+}
+
+::view-transition-old(photo-expand),
+::view-transition-new(photo-expand) {
+  animation-duration: 400ms;
+  animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ─── Photo sequence (horizontal scroll strip) ───────────────────────── */
+
+.photo-sequence {
+  display: flex;
+  gap: var(--wp--preset--spacing--4);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: var(--wp--preset--color--border) transparent;
+  padding-bottom: var(--wp--preset--spacing--4);
+}
+
+.photo-sequence__item {
+  flex: 0 0 auto;
+  width: min(80vw, 480px);
+  scroll-snap-align: start;
+}
+
+.photo-sequence__item img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3/2;
+  object-fit: cover;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .archive-row {
+    grid-template-columns: 60px 1fr;
+  }
+
+  .archive-row__thumb {
+    width: 60px;
+    height: 44px;
+  }
+
+  .archive-header .archive-title {
+    font-size: var(--wp--preset--font-size--3xl);
+  }
+}

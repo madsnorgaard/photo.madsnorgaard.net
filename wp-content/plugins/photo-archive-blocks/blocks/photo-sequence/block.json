@@ -1,0 +1,27 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "photo-archive-blocks/photo-sequence",
+  "version": "1.0.0",
+  "title": "Photo Sequence",
+  "category": "media",
+  "description": "A horizontal scroll strip of photos with scroll-snap. Ideal for sequences within stories.",
+  "textdomain": "photo-archive-blocks",
+  "attributes": {
+    "photoIds": {
+      "type": "array",
+      "default": [],
+      "items": { "type": "number" }
+    },
+    "caption": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": ["wide", "full"]
+  },
+  "editorScript": "file:./index.js",
+  "style": "file:./style.css"
+}

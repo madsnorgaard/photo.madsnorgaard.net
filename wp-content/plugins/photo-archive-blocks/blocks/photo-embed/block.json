@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "photo-archive-blocks/photo-embed",
+  "version": "1.0.0",
+  "title": "Photo Embed",
+  "category": "media",
+  "description": "Embed a single photo CPT record (thumbnail + number + title + link) inside a story.",
+  "textdomain": "photo-archive-blocks",
+  "attributes": {
+    "photoId": {
+      "type": "number"
+    },
+    "showCaption": {
+      "type": "boolean",
+      "default": true
+    },
+    "alignment": {
+      "type": "string",
+      "default": "none",
+      "enum": ["none", "left", "right", "wide", "full"]
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": ["left", "right", "wide", "full"]
+  },
+  "editorScript": "file:./index.js",
+  "style": "file:./style.css"
+}

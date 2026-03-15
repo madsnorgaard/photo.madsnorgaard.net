@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "photo-archive-blocks/section-break",
+  "version": "1.0.0",
+  "title": "Section Break",
+  "category": "design",
+  "description": "Documentary-style section divider: a horizontal rule with an optional section number.",
+  "textdomain": "photo-archive-blocks",
+  "attributes": {
+    "number": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "html": false,
+    "color": false,
+    "spacing": false
+  },
+  "editorScript": "file:./index.js",
+  "style": "file:./style.css",
+  "viewScript": "file:./view.js"
+}
