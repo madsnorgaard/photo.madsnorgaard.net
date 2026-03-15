@@ -3,7 +3,7 @@
  * Plugin Name: Photo Archive CPTs
  * Plugin URI: https://photo.madsnorgaard.net
  * Description: Registers the Photo and Story custom post types for the documentary archive.
- * Version: 1.0.0
+ * Version: 1.1.0
  * Author: Mads Nørgaard
  * Text Domain: photo-archive-cpts
  */
@@ -11,6 +11,32 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
+
+/**
+ * CORS headers for headless REST API use.
+ * Allows the Nuxt frontend (production + local dev) to call the WP REST API.
+ */
+add_action( 'rest_api_init', function () {
+    remove_filter( 'rest_pre_serve_request', 'rest_send_cors_headers' );
+    add_filter( 'rest_pre_serve_request', function ( $served, $result, $request ) {
+        $origin  = isset( $_SERVER['HTTP_ORIGIN'] ) ? $_SERVER['HTTP_ORIGIN'] : '';
+        $allowed = [
+            'https://madsnorgaard.net',
+            'https://www.madsnorgaard.net',
+            'https://madsnorgaard.net.ddev.site',
+            'http://localhost:3000',
+            'http://localhost:3001',
+        ];
+        if ( in_array( $origin, $allowed, true ) ) {
+            header( 'Access-Control-Allow-Origin: ' . $origin );
+            header( 'Access-Control-Allow-Methods: GET, OPTIONS' );
+            header( 'Access-Control-Allow-Headers: Authorization, Content-Type' );
+            header( 'Access-Control-Allow-Credentials: true' );
+            header( 'Vary: Origin' );
+        }
+        return $served;
+    }, 10, 3 );
+}, 15 );
 
 /**
  * Register the 'photo' CPT.
@@ -103,6 +129,7 @@ function pac_register_series_taxonomy(): void {
         'hierarchical'      => false,
         'public'            => true,
         'show_in_rest'      => true,
+        'rest_base'         => 'series',
         'rewrite'           => [ 'slug' => 'series' ],
         'show_admin_column' => true,
     ] );
@@ -122,6 +149,7 @@ function pac_register_subject_taxonomy(): void {
         'hierarchical'      => true,
         'public'            => true,
         'show_in_rest'      => true,
+        'rest_base'         => 'subjects',
         'rewrite'           => [ 'slug' => 'subject' ],
         'show_admin_column' => true,
     ] );
@@ -187,10 +215,10 @@ function pac_register_acf_fields(): void {
 add_action( 'acf/init', 'pac_register_acf_fields' );
 
 /**
- * Expose ACF fields in the REST API for the photo CPT.
+ * Expose ACF fields in the REST API response for a given post type.
  */
-function pac_expose_acf_in_rest( \WP_REST_Response $response, \WP_Post $post ): \WP_REST_Response {
-    if ( 'photo' !== $post->post_type || ! function_exists( 'get_fields' ) ) {
+function pac_merge_acf_into_meta( \WP_REST_Response $response, \WP_Post $post ): \WP_REST_Response {
+    if ( ! function_exists( 'get_fields' ) ) {
         return $response;
     }
     $fields = get_fields( $post->ID );
@@ -202,7 +230,8 @@ function pac_expose_acf_in_rest( \WP_REST_Response $response, \WP_Post $post ): 
     }
     return $response;
 }
-add_filter( 'rest_prepare_photo', 'pac_expose_acf_in_rest', 10, 2 );
+add_filter( 'rest_prepare_photo', 'pac_merge_acf_into_meta', 10, 2 );
+add_filter( 'rest_prepare_story', 'pac_merge_acf_into_meta', 10, 2 );
 
 /**
  * Flush rewrite rules on plugin activation.
