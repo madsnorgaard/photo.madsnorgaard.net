@@ -59,3 +59,4 @@ wp-content/themes/twentytwentythree/
 #   "wpengine/advanced-custom-fields-pro": "^6.0"
 # to composer.json with the ACF private package repo.
 # See README: ACF Pro upgrade path.
+wp-content/debug.log
