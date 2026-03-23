@@ -43,6 +43,15 @@ set_error_handler(
             return true;
         }
 
+        // ── Wordfence: get_class() without arguments (PHP 8.1+) ─────────
+        if (
+            ( $errno & ( E_DEPRECATED | E_USER_DEPRECATED ) )
+            && str_contains( $errfile, DIRECTORY_SEPARATOR . 'wordfence' . DIRECTORY_SEPARATOR )
+            && str_contains( $errstr, 'get_class() without arguments' )
+        ) {
+            return true;
+        }
+
         // Everything else: delegate to default PHP error handling.
         return false;
     },
