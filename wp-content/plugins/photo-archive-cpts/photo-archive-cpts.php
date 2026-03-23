@@ -3,7 +3,7 @@
  * Plugin Name: Photo Archive CPTs
  * Plugin URI: https://photo.madsnorgaard.net
  * Description: Registers the Photo and Story custom post types for the documentary archive.
- * Version: 1.1.0
+ * Version: 1.2.0
  * Author: Mads Nørgaard
  * Text Domain: photo-archive-cpts
  */
@@ -11,32 +11,6 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
-
-/**
- * CORS headers for headless REST API use.
- * Allows the Nuxt frontend (production + local dev) to call the WP REST API.
- */
-add_action( 'rest_api_init', function () {
-    remove_filter( 'rest_pre_serve_request', 'rest_send_cors_headers' );
-    add_filter( 'rest_pre_serve_request', function ( $served, $result, $request ) {
-        $origin  = isset( $_SERVER['HTTP_ORIGIN'] ) ? $_SERVER['HTTP_ORIGIN'] : '';
-        $allowed = [
-            'https://madsnorgaard.net',
-            'https://www.madsnorgaard.net',
-            'https://madsnorgaard.net.ddev.site',
-            'http://localhost:3000',
-            'http://localhost:3001',
-        ];
-        if ( in_array( $origin, $allowed, true ) ) {
-            header( 'Access-Control-Allow-Origin: ' . $origin );
-            header( 'Access-Control-Allow-Methods: GET, OPTIONS' );
-            header( 'Access-Control-Allow-Headers: Authorization, Content-Type' );
-            header( 'Access-Control-Allow-Credentials: true' );
-            header( 'Vary: Origin' );
-        }
-        return $served;
-    }, 10, 3 );
-}, 15 );
 
 /**
  * Register the 'photo' CPT.

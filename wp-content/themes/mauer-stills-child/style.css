@@ -8,3 +8,88 @@ Template: mauer-stills
 Version: 1.0.0
 Text Domain: mauer-stills-child
 */
+
+/* =============================================================
+   GALLERY BREAKOUT — single-project pages
+   Breaks .wp-block-gallery out of Bootstrap col-md-6 to
+   full viewport width, with a proper CSS grid layout.
+   Everything else defers to the parent Mauer Stills theme.
+   ============================================================= */
+
+/* ── Full-bleed breakout ─────────────────────────────────────── */
+.single-project .entry-content .wp-block-gallery,
+.single-project .entry-content figure.wp-block-gallery {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: none;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Replace Gutenberg flex with CSS grid ────────────────────── */
+.single-project .entry-content .wp-block-gallery .blocks-gallery-grid,
+.single-project .entry-content .wp-block-gallery ul.blocks-gallery-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+/* Column overrides */
+.single-project .entry-content .wp-block-gallery.columns-1 .blocks-gallery-grid {
+  grid-template-columns: 1fr;
+}
+.single-project .entry-content .wp-block-gallery.columns-3 .blocks-gallery-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+.single-project .entry-content .wp-block-gallery.columns-4 .blocks-gallery-grid,
+.single-project .entry-content .wp-block-gallery.columns-5 .blocks-gallery-grid,
+.single-project .entry-content .wp-block-gallery.columns-6 .blocks-gallery-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* ── Gallery items ───────────────────────────────────────────── */
+.single-project .entry-content .blocks-gallery-item {
+  margin: 0 !important;
+  overflow: hidden;
+  aspect-ratio: 3 / 2;
+}
+.single-project .entry-content .blocks-gallery-item figure {
+  height: 100%;
+  margin: 0;
+}
+.single-project .entry-content .blocks-gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.single-project .entry-content .blocks-gallery-item:hover img {
+  transform: scale(1.04);
+}
+
+/* Single-image: more cinematic ratio */
+.single-project .entry-content .wp-block-gallery.columns-1 .blocks-gallery-item {
+  aspect-ratio: 16 / 9;
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .single-project .entry-content .wp-block-gallery.columns-3 .blocks-gallery-grid,
+  .single-project .entry-content .wp-block-gallery.columns-4 .blocks-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .single-project .entry-content .blocks-gallery-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .single-project .entry-content .blocks-gallery-item {
+    aspect-ratio: 4 / 3;
+  }
+}

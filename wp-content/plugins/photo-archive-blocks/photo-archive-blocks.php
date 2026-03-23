@@ -3,7 +3,7 @@
  * Plugin Name: Photo Archive Blocks
  * Plugin URI: https://photo.madsnorgaard.net
  * Description: Custom Gutenberg blocks for the photo archive: photo-embed, photo-sequence, pull-quote, section-break.
- * Version: 1.0.0
+ * Version: 1.1.0
  * Author: Mads Nørgaard
  * Text Domain: photo-archive-blocks
  * Requires at least: 6.4
@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 define( 'PAB_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'PAB_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
-define( 'PAB_VERSION', '1.0.0' );
+define( 'PAB_VERSION', '1.1.0' );
 
 /**
  * Register all blocks.
@@ -37,13 +37,16 @@ function pab_register_blocks(): void {
 add_action( 'init', 'pab_register_blocks' );
 
 /**
- * REST endpoint: single photo data for editor preview.
+ * REST endpoint: single photo data for editor (Gutenberg block) preview.
+ *
+ * Restricted to users who can edit posts — this endpoint is only for the
+ * block editor, not for the Nuxt frontend. The frontend uses /wp/v2/photos/{id}.
  */
 function pab_register_rest_routes(): void {
     register_rest_route( 'photo-archive-blocks/v1', '/photo/(?P<id>\d+)', [
         'methods'             => \WP_REST_Server::READABLE,
         'callback'            => 'pab_get_photo_data',
-        'permission_callback' => '__return_true',
+        'permission_callback' => fn() => current_user_can( 'edit_posts' ),
         'args'                => [
             'id' => [
                 'validate_callback' => fn( $v ) => is_numeric( $v ),
@@ -56,7 +59,10 @@ add_action( 'rest_api_init', 'pab_register_rest_routes' );
 
 function pab_get_photo_data( \WP_REST_Request $request ): \WP_REST_Response|\WP_Error {
     $post = get_post( $request['id'] );
-    if ( ! $post || 'photo' !== $post->post_type ) {
+
+    // Only return published photos — editors should see drafts in the normal
+    // block editor, not through this endpoint.
+    if ( ! $post || 'photo' !== $post->post_type || 'publish' !== $post->post_status ) {
         return new \WP_Error( 'not_found', 'Photo not found', [ 'status' => 404 ] );
     }
 
