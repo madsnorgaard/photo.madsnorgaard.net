@@ -1,0 +1,15 @@
+#!/bin/bash
+## Description: Show plugin and theme status + available updates
+## Usage: wp-status
+## CanRunGlobally: false
+
+echo "=== Plugins ==="
+wp plugin list --format=table
+
+echo ""
+echo "=== Themes ==="
+wp theme list --format=table
+
+echo ""
+echo "=== WP Core ==="
+wp core version --extra

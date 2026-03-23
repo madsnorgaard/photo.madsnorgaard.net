@@ -1,0 +1,48 @@
+{
+    "name": "madsnorgaard/photo-madsnorgaard-net",
+    "description": "photo.madsnorgaard.net — documentary photo archive (WordPress REST API backend + headless Nuxt frontend)",
+    "type": "project",
+    "license": "proprietary",
+    "require": {
+        "php": ">=8.4",
+        "composer/installers": "^2.3",
+        "wpackagist-plugin/akismet": "*",
+        "wpackagist-plugin/autoptimize": "*",
+        "wpackagist-plugin/contact-form-7": "*",
+        "wpackagist-plugin/google-analytics-for-wordpress": "*",
+        "wpackagist-plugin/google-captcha": "*",
+        "wpackagist-plugin/intuitive-custom-post-order": "*",
+        "wpackagist-plugin/seo-by-rank-math": "*",
+        "wpackagist-plugin/wordfence": "*",
+        "wpackagist-plugin/wp-super-cache": "*",
+        "wpackagist-plugin/wps-hide-login": "*"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org",
+            "only": ["wpackagist-plugin/*", "wpackagist-theme/*"]
+        }
+    ],
+    "extra": {
+        "installer-paths": {
+            "wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+            "wp-content/themes/{$name}/":  ["type:wordpress-theme"],
+            "wp-content/mu-plugins/{$name}/": ["type:wordpress-muplugin"]
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
+        },
+        "sort-packages": true
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "[ -f wp-content/plugins/hello.php ] && rm -f wp-content/plugins/hello.php; true"
+        ],
+        "post-update-cmd": [
+            "[ -f wp-content/plugins/hello.php ] && rm -f wp-content/plugins/hello.php; true"
+        ]
+    }
+}

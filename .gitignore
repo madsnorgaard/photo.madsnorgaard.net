@@ -26,3 +26,36 @@ readme.html
 .ddev/.gitignore
 .ddev/config.*.yaml
 .ddev/.homeadditions
+
+# ── Composer ──────────────────────────────────────────────────
+vendor/
+
+# Third-party plugins managed by Composer/wpackagist (see composer.json)
+# Run: ddev composer install
+wp-content/plugins/akismet/
+wp-content/plugins/autoptimize/
+wp-content/plugins/bulk-block-converter/
+wp-content/plugins/contact-form-7/
+wp-content/plugins/google-analytics-for-wordpress/
+wp-content/plugins/google-captcha/
+wp-content/plugins/intuitive-custom-post-order/
+wp-content/plugins/seo-by-rank-math/
+wp-content/plugins/wordfence/
+wp-content/plugins/wp-super-cache/
+wp-content/plugins/wps-hide-login/
+wp-content/plugins/hello.php
+
+# Default WP bundled themes — not needed in this repo
+wp-content/themes/twentynineteen/
+wp-content/themes/twentyseventeen/
+wp-content/themes/twentytwenty/
+wp-content/themes/twentytwentyone/
+wp-content/themes/twentytwentytwo/
+wp-content/themes/twentytwentythree/
+
+# ── ACF Pro (premium — not on wpackagist) ─────────────────────
+# Tracked in git at wp-content/plugins/advanced-custom-fields-pro/
+# until upgraded to v6.x. Once upgraded, remove from git and add:
+#   "wpengine/advanced-custom-fields-pro": "^6.0"
+# to composer.json with the ACF private package repo.
+# See README: ACF Pro upgrade path.

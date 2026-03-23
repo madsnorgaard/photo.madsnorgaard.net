@@ -1,0 +1,23 @@
+#!/bin/bash
+## Description: Activate all custom photo-archive plugins (run after fresh DB import)
+## Usage: wp-activate-custom
+## CanRunGlobally: false
+
+set -e
+
+plugins=(
+    photo-archive-cpts
+    photo-archive-blocks
+    photo-api-security
+)
+
+for plugin in "${plugins[@]}"; do
+    if wp plugin is-installed "$plugin" 2>/dev/null; then
+        wp plugin activate "$plugin" && echo "→ activated: $plugin"
+    else
+        echo "⚠  not found: $plugin"
+    fi
+done
+
+wp cache flush
+echo "✓ Done."

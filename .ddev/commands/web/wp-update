@@ -1,0 +1,20 @@
+#!/bin/bash
+## Description: Update Composer packages + all WP plugins/themes via WP-CLI, then flush cache
+## Usage: wp-update
+## CanRunGlobally: false
+
+set -e
+
+echo "→ Updating Composer packages..."
+composer install --no-interaction --prefer-dist
+
+echo "→ Updating plugins via WP-CLI..."
+wp plugin update --all
+
+echo "→ Updating themes via WP-CLI..."
+wp theme update --all
+
+echo "→ Flushing object cache..."
+wp cache flush
+
+echo "✓ Done."

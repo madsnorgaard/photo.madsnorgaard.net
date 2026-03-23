@@ -296,7 +296,7 @@ corepack_enable: false
 # See https://ddev.readthedocs.io/en/stable/users/extend/custom-commands/ for more
 # information on the commands that can be extended and the tasks you can define
 # for them. Example:
-#hooks:
-# Un-comment to emit the WP CLI version after ddev start.
-#  post-start:
-#    - exec: wp cli version
+hooks:
+  post-start:
+    # Auto-install Composer dependencies on ddev start
+    - exec: "[ -f composer.json ] && composer install --no-interaction --prefer-dist 2>&1 | tail -3 || true"
