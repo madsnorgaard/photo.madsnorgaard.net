@@ -55,6 +55,7 @@ services:
      volumes:
        - wp_html:/var/www/html
        - ./wp-content:/var/www/html/wp-content
+       - ./php-uploads.ini:/usr/local/etc/php/conf.d/uploads.ini:ro
      container_name: ${WORDPRESS_DOMAIN}_wordpress
      labels:
        - traefik.http.routers.photo_madsnorgaard_wordpress.rule=Host(`${WORDPRESS_DOMAIN}`) || Host(`www.${WORDPRESS_DOMAIN}`)
