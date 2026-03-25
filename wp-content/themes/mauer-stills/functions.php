@@ -261,7 +261,7 @@ endif;
 
 
 // Alters the 'big image size' threshold that has appeared in WP 5.3
-add_filter('big_image_size_threshold', '4000', 9999);
+add_filter('big_image_size_threshold', '__return_false', 9999);
 
 
 
