@@ -61,10 +61,6 @@ services:
        - traefik.http.routers.photo_madsnorgaard_wordpress.rule=Host(`${WORDPRESS_DOMAIN}`) || Host(`www.${WORDPRESS_DOMAIN}`)
        - traefik.http.routers.photo_madsnorgaard_wordpress.tls=true
        - traefik.http.routers.photo_madsnorgaard_wordpress.tls.certresolver=lets-encrypt
-       - traefik.http.routers.web.middlewares=web-www-https-redirect
-       - traefik.port=80
-       - traefik.http.middlewares.web-www-https-redirect.redirectregex.permanent=true
-       - traefik.http.middlewares.web-secure-www-redirect.redirectregex.permanent=true
      networks:
        - internal
        - web
