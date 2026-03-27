@@ -21,25 +21,6 @@ services:
      labels:
       - traefik.enable=false
 
-   photo_madsnorgaard_phpmyadmin:
-     image: phpmyadmin/phpmyadmin:5.2
-     restart: always
-     environment:
-       PMA_HOST: photo_madsnorgaard_db
-       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-       DOCKER_COMPOSE_YML_LOCATION: ${PWD}
-       UPLOAD_LIMIT: 300M
-     container_name: ${WORDPRESS_DOMAIN}_phpmyadmin
-     labels:
-       - traefik.http.routers.photo_madsnorgaard_phpmyadmin.rule=Host(`phpmyadmin.${WORDPRESS_DOMAIN}`) || Host(`phpmyadmin.madsnorgaard.net`)
-       - traefik.http.routers.photo_madsnorgaard_phpmyadmin.tls=true
-       - traefik.http.routers.photo_madsnorgaard_phpmyadmin.tls.certresolver=lets-encrypt
-       - traefik.port=8080
-     networks:
-       - internal
-       - web
-     depends_on:
-       - photo_madsnorgaard_db
 
    photo_madsnorgaard_wordpress:
      depends_on:
