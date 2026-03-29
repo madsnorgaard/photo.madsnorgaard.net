@@ -19,6 +19,7 @@ db-backups/
 wp-admin/
 wp-includes/
 wp-*.php
+!wp-content/themes/mauer-stills/includes/wp-bootstrap-navwalker/wp-bootstrap-navwalker.php
 index.php
 xmlrpc.php
 license.txt
