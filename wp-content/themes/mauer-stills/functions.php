@@ -1276,9 +1276,11 @@ if (!function_exists('mauer_stills_wp_nav_menu')) :
 			'depth' => 2,
 			'container' => false,
 			'menu_class' => 'nav navbar-nav',
-			'fallback_cb' => 'wp_bootstrap_navwalker::fallback',
-			'walker' => new wp_bootstrap_navwalker()
 		);
+		if ( class_exists( 'WP_Bootstrap_Navwalker' ) ) {
+			$menu_args['fallback_cb'] = 'WP_Bootstrap_Navwalker::fallback';
+			$menu_args['walker']      = new WP_Bootstrap_Navwalker();
+		}
 		if (has_nav_menu( 'primary' )) {$menu_args['theme_location'] = 'primary';}
 		wp_nav_menu($menu_args);
 	}
