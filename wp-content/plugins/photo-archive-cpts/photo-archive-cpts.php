@@ -189,6 +189,189 @@ function pac_register_acf_fields(): void {
 add_action( 'acf/init', 'pac_register_acf_fields' );
 
 /**
+ * Add structured block data to story REST responses.
+ *
+ * Parses Gutenberg blocks from post_content and returns a clean JSON
+ * representation that the Nuxt frontend can render with custom Vue
+ * components instead of relying on content.rendered HTML.
+ *
+ * When the request includes ?_resolve_photos=1 the response also
+ * includes a resolved_photos map with full image data for every
+ * photo referenced in photo-embed / photo-sequence blocks.
+ */
+function pac_add_blocks_data( \WP_REST_Response $response, \WP_Post $post, \WP_REST_Request $request ): \WP_REST_Response {
+    $blocks = parse_blocks( $post->post_content );
+    $blocks_data = pac_extract_blocks( $blocks );
+    $response->data['blocks_data'] = $blocks_data;
+
+    // Optionally resolve photo data for embedded photo references.
+    $resolve = $request->get_param( '_resolve_photos' );
+    if ( $resolve && in_array( $resolve, [ '1', 'true', true, 1 ], true ) ) {
+        $photo_ids = pac_collect_photo_ids( $blocks_data );
+        $response->data['resolved_photos'] = pac_resolve_photos( $photo_ids );
+    }
+
+    return $response;
+}
+add_filter( 'rest_prepare_story', 'pac_add_blocks_data', 20, 3 );
+
+/**
+ * Walk parsed blocks and build a structured array.
+ *
+ * Only allowlisted block types are included. Unknown blocks are
+ * silently skipped so the API surface stays predictable.
+ *
+ * @param array $blocks Output of parse_blocks().
+ * @return array Structured block data.
+ */
+function pac_extract_blocks( array $blocks ): array {
+    $output = [];
+
+    // Attribute allowlists per custom block type.
+    $attr_allowlists = [
+        'photo-archive-blocks/photo-embed'    => [ 'photoId', 'showCaption', 'alignment' ],
+        'photo-archive-blocks/photo-sequence'  => [ 'photoIds', 'caption' ],
+        'photo-archive-blocks/section-break'   => [ 'number' ],
+    ];
+
+    // Core blocks where we keep sanitised innerHTML.
+    $core_content_blocks = [
+        'core/paragraph',
+        'core/heading',
+        'core/list',
+        'core/list-item',
+        'core/image',
+        'core/quote',
+    ];
+
+    foreach ( $blocks as $block ) {
+        $name = $block['blockName'] ?? null;
+
+        // Skip empty freeform blocks (whitespace between blocks).
+        if ( null === $name ) {
+            continue;
+        }
+
+        // Custom blocks with explicit attribute allowlists.
+        if ( isset( $attr_allowlists[ $name ] ) ) {
+            $safe_attrs = [];
+            foreach ( $attr_allowlists[ $name ] as $key ) {
+                if ( isset( $block['attrs'][ $key ] ) ) {
+                    $safe_attrs[ $key ] = $block['attrs'][ $key ];
+                }
+            }
+            $output[] = [
+                'type'  => str_replace( 'photo-archive-blocks/', '', $name ),
+                'attrs' => $safe_attrs,
+            ];
+            continue;
+        }
+
+        // Pull-quote: keep sanitised inner HTML.
+        if ( 'photo-archive-blocks/pull-quote' === $name ) {
+            $output[] = [
+                'type'    => 'pull-quote',
+                'content' => wp_kses_post( trim( $block['innerHTML'] ?? '' ) ),
+            ];
+            continue;
+        }
+
+        // Core content blocks: keep sanitised inner HTML.
+        if ( in_array( $name, $core_content_blocks, true ) ) {
+            $html = trim( $block['innerHTML'] ?? '' );
+            if ( '' === $html ) {
+                continue;
+            }
+            $output[] = [
+                'type'    => str_replace( 'core/', '', $name ),
+                'content' => wp_kses_post( $html ),
+            ];
+            continue;
+        }
+
+        // All other blocks are silently skipped.
+    }
+
+    return $output;
+}
+
+/**
+ * Collect unique photo IDs from structured blocks_data.
+ *
+ * @param array $blocks_data Output of pac_extract_blocks().
+ * @return int[] Unique photo post IDs (max 50).
+ */
+function pac_collect_photo_ids( array $blocks_data ): array {
+    $ids = [];
+
+    foreach ( $blocks_data as $block ) {
+        if ( 'photo-embed' === $block['type'] && ! empty( $block['attrs']['photoId'] ) ) {
+            $ids[] = absint( $block['attrs']['photoId'] );
+        }
+        if ( 'photo-sequence' === $block['type'] && ! empty( $block['attrs']['photoIds'] ) ) {
+            foreach ( $block['attrs']['photoIds'] as $id ) {
+                $ids[] = absint( $id );
+            }
+        }
+    }
+
+    // Deduplicate and cap at 50 to prevent abuse.
+    return array_slice( array_unique( array_filter( $ids ) ), 0, 50 );
+}
+
+/**
+ * Resolve an array of photo post IDs into a map of photo data
+ * with image URLs and ACF metadata.
+ *
+ * @param int[] $photo_ids Photo post IDs.
+ * @return array Associative array keyed by photo ID.
+ */
+function pac_resolve_photos( array $photo_ids ): array {
+    $resolved = [];
+
+    foreach ( $photo_ids as $photo_id ) {
+        $post = get_post( $photo_id );
+        if ( ! $post || 'photo' !== $post->post_type || 'publish' !== $post->post_status ) {
+            continue;
+        }
+
+        $thumbnail_id = (int) get_post_thumbnail_id( $post->ID );
+        $images       = [];
+        if ( $thumbnail_id ) {
+            foreach ( [ 'thumbnail', 'medium', 'large', 'full' ] as $size ) {
+                $src = wp_get_attachment_image_src( $thumbnail_id, $size );
+                if ( $src ) {
+                    $images[ $size ] = [
+                        'url'    => $src[0],
+                        'width'  => $src[1],
+                        'height' => $src[2],
+                    ];
+                }
+            }
+        }
+
+        $archive_number = get_post_meta( $post->ID, 'archive_number', true );
+        $location       = get_post_meta( $post->ID, 'location', true );
+        $date_taken     = get_post_meta( $post->ID, 'date_taken', true );
+        $camera         = get_post_meta( $post->ID, 'camera', true );
+
+        $resolved[ $photo_id ] = [
+            'id'            => $post->ID,
+            'title'         => get_the_title( $post ),
+            'slug'          => $post->post_name,
+            'archiveNumber' => $archive_number ? str_pad( absint( $archive_number ), 3, '0', STR_PAD_LEFT ) : null,
+            'location'      => $location ?: null,
+            'dateTaken'     => $date_taken ?: null,
+            'camera'        => $camera ?: null,
+            'excerpt'       => get_the_excerpt( $post ),
+            'images'        => $images,
+        ];
+    }
+
+    return $resolved;
+}
+
+/**
  * Expose ACF fields in the REST API response for a given post type.
  */
 function pac_merge_acf_into_meta( \WP_REST_Response $response, \WP_Post $post ): \WP_REST_Response {
@@ -206,6 +389,21 @@ function pac_merge_acf_into_meta( \WP_REST_Response $response, \WP_Post $post ):
 }
 add_filter( 'rest_prepare_photo', 'pac_merge_acf_into_meta', 10, 2 );
 add_filter( 'rest_prepare_story', 'pac_merge_acf_into_meta', 10, 2 );
+
+/**
+ * Enable REST API for the project_cat taxonomy (registered by mauer-stills-portfolio).
+ *
+ * The premium plugin does not set show_in_rest, so we patch it here
+ * to make project categories available via the WP REST API.
+ */
+function pac_enable_project_cat_rest(): void {
+    $tax = get_taxonomy( 'project_cat' );
+    if ( $tax ) {
+        $tax->show_in_rest = true;
+        $tax->rest_base    = 'project-categories';
+    }
+}
+add_action( 'init', 'pac_enable_project_cat_rest', 20 );
 
 /**
  * Flush rewrite rules on plugin activation.

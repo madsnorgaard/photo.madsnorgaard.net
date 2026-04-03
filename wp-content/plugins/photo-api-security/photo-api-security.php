@@ -120,6 +120,7 @@ function pas_send_security_headers(): void {
     header( 'X-XSS-Protection: 1; mode=block' );
     header( 'Referrer-Policy: strict-origin-when-cross-origin' );
     header( 'Permissions-Policy: geolocation=(), microphone=(), camera=()' );
+    header( 'Strict-Transport-Security: max-age=31536000; includeSubDomains' );
     header_remove( 'X-Powered-By' );
 }
 
@@ -128,6 +129,11 @@ function pas_send_security_headers(): void {
 // Authenticated users are exempt (admin, Application Password sessions).
 add_filter( 'rest_pre_dispatch', function ( $result, \WP_REST_Server $server, \WP_REST_Request $request ) {
     if ( $result !== null || is_user_logged_in() ) {
+        return $result;
+    }
+
+    // Internal server-to-server calls are exempt (validated at priority 5).
+    if ( $request->get_param( '_pas_internal' ) ) {
         return $result;
     }
 
@@ -167,4 +173,51 @@ function pas_require_published_for_public( array $args ): array {
         $args['post_status'] = 'publish';
     }
     return $args;
+}
+
+// ─── 9. Enforce pagination caps on CPT REST endpoints ───────────────────────
+// Prevent excessive per_page values that could cause memory issues.
+add_filter( 'rest_photo_query', 'pas_cap_pagination' );
+add_filter( 'rest_story_query', 'pas_cap_pagination' );
+
+function pas_cap_pagination( array $args ): array {
+    if ( isset( $args['posts_per_page'] ) && $args['posts_per_page'] > 50 ) {
+        $args['posts_per_page'] = 50;
+    }
+    return $args;
+}
+
+// ─── 10. Internal token bypass for server-to-server rate limiting ───────────
+// The Nuxt frontend calls the WP REST API from a single container IP.
+// A shared secret token exempts these server-to-server calls from the
+// per-IP rate limit while keeping the limit in place for public traffic.
+//
+// Set PHOTO_API_INTERNAL_TOKEN in the WordPress .env file and
+// the Nuxt container's environment. The Nuxt BFF routes send the
+// token via the X-Internal-Token header.
+add_filter( 'rest_pre_dispatch', 'pas_internal_token_bypass', 5, 3 );
+
+function pas_internal_token_bypass( $result, \WP_REST_Server $server, \WP_REST_Request $request ) {
+    if ( $result !== null ) {
+        return $result;
+    }
+
+    // Read from wp-config.php constant or Docker environment variable.
+    $expected = defined( 'PHOTO_API_INTERNAL_TOKEN' )
+        ? PHOTO_API_INTERNAL_TOKEN
+        : ( getenv( 'PHOTO_API_INTERNAL_TOKEN' ) ?: '' );
+    if ( '' === $expected ) {
+        return $result;
+    }
+
+    $provided = isset( $_SERVER['HTTP_X_INTERNAL_TOKEN'] )
+        ? sanitize_text_field( wp_unslash( $_SERVER['HTTP_X_INTERNAL_TOKEN'] ) )
+        : '';
+
+    if ( '' !== $provided && hash_equals( $expected, $provided ) ) {
+        // Mark as internal so the rate limiter (priority 10) can skip.
+        $request->set_param( '_pas_internal', true );
+    }
+
+    return $result;
 }
