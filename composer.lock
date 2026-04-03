@@ -208,15 +208,15 @@
         },
         {
             "name": "wpackagist-plugin/google-analytics-for-wordpress",
-            "version": "10.0.3",
+            "version": "10.1.2",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/google-analytics-for-wordpress/",
-                "reference": "tags/10.0.3"
+                "reference": "tags/10.1.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/google-analytics-for-wordpress.10.0.3.zip"
+                "url": "https://downloads.wordpress.org/plugin/google-analytics-for-wordpress.10.1.2.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
