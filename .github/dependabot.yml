@@ -1,6 +1,6 @@
 version: 2
 updates:
-  - package-ecosystem: "docker"
+  - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "weekly"
@@ -8,13 +8,6 @@ updates:
     open-pull-requests-limit: 5
 
   - package-ecosystem: "composer"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-      day: "monday"
-    open-pull-requests-limit: 5
-
-  - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "weekly"
