@@ -42,6 +42,9 @@ services:
        - traefik.http.routers.photo_madsnorgaard_wordpress.rule=Host(`${WORDPRESS_DOMAIN}`) || Host(`www.${WORDPRESS_DOMAIN}`)
        - traefik.http.routers.photo_madsnorgaard_wordpress.tls=true
        - traefik.http.routers.photo_madsnorgaard_wordpress.tls.certresolver=lets-encrypt
+       # Per-service CSP — WordPress needs unsafe-inline/unsafe-eval for Gutenberg admin
+       - traefik.http.middlewares.photo-csp.headers.contentSecurityPolicy=default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://analytics.theazanianprepper.online; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://analytics.theazanianprepper.online; media-src 'self' https:; frame-src 'self' https:; frame-ancestors 'self'; base-uri 'self'; upgrade-insecure-requests
+       - traefik.http.routers.photo_madsnorgaard_wordpress.middlewares=photo-csp
      networks:
        - internal
        - web
