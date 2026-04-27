@@ -226,15 +226,15 @@
         },
         {
             "name": "wpackagist-plugin/google-captcha",
-            "version": "1.86",
+            "version": "1.87",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/google-captcha/",
-                "reference": "tags/1.86"
+                "reference": "tags/1.87"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/google-captcha.1.86.zip"
+                "url": "https://downloads.wordpress.org/plugin/google-captcha.1.87.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
