@@ -214,7 +214,43 @@ add_action( 'rest_api_init', function (): void {
         'callback'            => 'eva_handle_note',
         'permission_callback' => 'eva_internal_permission',
     ] );
+
+    // GET /top?count=12 — most-liked photo IDs, descending. Read-only and
+    // public: core wp/v2 cannot order event-photos by the like_count meta, so
+    // the "Top picks" rail needs this. Returns only IDs (no PII).
+    register_rest_route( 'event-archive/v1', '/top', [
+        'methods'             => 'GET',
+        'callback'            => 'eva_handle_top',
+        'permission_callback' => '__return_true',
+    ] );
 } );
+
+/**
+ * GET /event-archive/v1/top?count=12
+ *
+ * Returns the IDs of the most-liked published event_photo posts (descending),
+ * which the Nuxt BFF then expands to full photos via wp/v2 ?include.
+ */
+function eva_handle_top( WP_REST_Request $request ): WP_REST_Response {
+    $count = (int) $request->get_param( 'count' );
+    $count = max( 1, min( 50, $count ?: 12 ) );
+
+    $q = new WP_Query( [
+        'post_type'      => 'event_photo',
+        'post_status'    => 'publish',
+        'posts_per_page' => $count,
+        'meta_key'       => 'like_count',
+        'orderby'        => 'meta_value_num',
+        'order'          => 'DESC',
+        'meta_query'     => [
+            [ 'key' => 'like_count', 'value' => 0, 'compare' => '>', 'type' => 'NUMERIC' ],
+        ],
+        'fields'         => 'ids',
+        'no_found_rows'  => true,
+    ] );
+
+    return new WP_REST_Response( [ 'ids' => array_map( 'intval', $q->posts ) ], 200 );
+}
 
 /**
  * POST /event-archive/v1/notes  { set, name, message, hp }
