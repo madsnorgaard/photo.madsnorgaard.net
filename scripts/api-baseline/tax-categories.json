@@ -20,103 +20,23 @@
       ],
       "self": [
         {
-          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/categories/20"
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/categories/1"
         }
       ],
       "wp:post_type": [
         {
-          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/posts?categories=20"
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/posts?categories=1"
         }
       ]
     },
-    "count": 1,
+    "count": 6,
     "description": "",
-    "id": 20,
-    "link": "https://photo.madsnorgaard.net/category/denmark/",
+    "id": 1,
+    "link": "https://photo.madsnorgaard.net/category/uncategorised/",
     "meta": [],
-    "name": "Denmark",
+    "name": "Uncategorized",
     "parent": 0,
-    "slug": "denmark",
-    "taxonomy": "category"
-  },
-  {
-    "_links": {
-      "about": [
-        {
-          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/taxonomies/category"
-        }
-      ],
-      "collection": [
-        {
-          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/categories"
-        }
-      ],
-      "curies": [
-        {
-          "href": "https://api.w.org/{rel}",
-          "name": "wp",
-          "templated": true
-        }
-      ],
-      "self": [
-        {
-          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/categories/22"
-        }
-      ],
-      "wp:post_type": [
-        {
-          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/posts?categories=22"
-        }
-      ]
-    },
-    "count": 7,
-    "description": "",
-    "id": 22,
-    "link": "https://photo.madsnorgaard.net/category/news/",
-    "meta": [],
-    "name": "News",
-    "parent": 0,
-    "slug": "news",
-    "taxonomy": "category"
-  },
-  {
-    "_links": {
-      "about": [
-        {
-          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/taxonomies/category"
-        }
-      ],
-      "collection": [
-        {
-          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/categories"
-        }
-      ],
-      "curies": [
-        {
-          "href": "https://api.w.org/{rel}",
-          "name": "wp",
-          "templated": true
-        }
-      ],
-      "self": [
-        {
-          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/categories/21"
-        }
-      ],
-      "wp:post_type": [
-        {
-          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/posts?categories=21"
-        }
-      ]
-    },
-    "count": 10,
-    "description": "",
-    "id": 21,
-    "link": "https://photo.madsnorgaard.net/category/south-africa/",
-    "meta": [],
-    "name": "South Africa",
-    "parent": 0,
-    "slug": "south-africa",
+    "slug": "uncategorised",
     "taxonomy": "category"
   },
   {
@@ -180,23 +100,103 @@
       ],
       "self": [
         {
-          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/categories/1"
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/categories/20"
         }
       ],
       "wp:post_type": [
         {
-          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/posts?categories=1"
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/posts?categories=20"
         }
       ]
     },
-    "count": 6,
+    "count": 1,
     "description": "",
-    "id": 1,
-    "link": "https://photo.madsnorgaard.net/category/uncategorised/",
+    "id": 20,
+    "link": "https://photo.madsnorgaard.net/category/denmark/",
     "meta": [],
-    "name": "Uncategorized",
+    "name": "Denmark",
     "parent": 0,
-    "slug": "uncategorised",
+    "slug": "denmark",
+    "taxonomy": "category"
+  },
+  {
+    "_links": {
+      "about": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/categories"
+        }
+      ],
+      "curies": [
+        {
+          "href": "https://api.w.org/{rel}",
+          "name": "wp",
+          "templated": true
+        }
+      ],
+      "self": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/categories/21"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/posts?categories=21"
+        }
+      ]
+    },
+    "count": 10,
+    "description": "",
+    "id": 21,
+    "link": "https://photo.madsnorgaard.net/category/south-africa/",
+    "meta": [],
+    "name": "South Africa",
+    "parent": 0,
+    "slug": "south-africa",
+    "taxonomy": "category"
+  },
+  {
+    "_links": {
+      "about": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/categories"
+        }
+      ],
+      "curies": [
+        {
+          "href": "https://api.w.org/{rel}",
+          "name": "wp",
+          "templated": true
+        }
+      ],
+      "self": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/categories/22"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/posts?categories=22"
+        }
+      ]
+    },
+    "count": 7,
+    "description": "",
+    "id": 22,
+    "link": "https://photo.madsnorgaard.net/category/news/",
+    "meta": [],
+    "name": "News",
+    "parent": 0,
+    "slug": "news",
     "taxonomy": "category"
   }
 ]
