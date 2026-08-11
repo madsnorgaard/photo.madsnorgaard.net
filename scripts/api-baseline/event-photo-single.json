@@ -43,7 +43,7 @@
         "alt_text": "",
         "author": 0,
         "caption": {
-          "rendered": "\t\t<div class=\"more-link-holder\">\n\t\t\t<a class=\"more-link\" href=\"https://photo.madsnorgaard.net/event-photo/cold-turkey-27-may-2012-01/cold-turkey-27-may-2012-01-2/\">read more <i class=\"fa fa-angle-right\"></i></a>\n\t\t</div>"
+          "rendered": ""
         },
         "featured_media": 0,
         "id": 1466,
@@ -303,7 +303,6 @@
   "id": 1465,
   "link": "https://photo.madsnorgaard.net/event-photo/cold-turkey-27-may-2012-01/",
   "meta": {
-    "_monsterinsights_skip_tracking": false,
     "capture_date": "2012-05-27T15:32:19+00:00",
     "like_count": 0,
     "there_count": 0
