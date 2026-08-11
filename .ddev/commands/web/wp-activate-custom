@@ -9,6 +9,7 @@ plugins=(
     photo-archive-cpts
     photo-archive-blocks
     photo-api-security
+    event-archive
 )
 
 for plugin in "${plugins[@]}"; do

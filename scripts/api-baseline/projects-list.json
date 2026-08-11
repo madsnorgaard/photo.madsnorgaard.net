@@ -1,0 +1,542 @@
+[
+  {
+    "_embedded": {
+      "wp:featuredmedia": [
+        {
+          "_links": {
+            "about": [
+              {
+                "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/types/attachment"
+              }
+            ],
+            "author": [
+              {
+                "embeddable": true,
+                "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/users/1"
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/media"
+              }
+            ],
+            "curies": [
+              {
+                "href": "https://api.w.org/{rel}",
+                "name": "wp",
+                "templated": true
+              }
+            ],
+            "replies": [
+              {
+                "embeddable": true,
+                "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/comments?post=1110"
+              }
+            ],
+            "self": [
+              {
+                "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/media/1110"
+              }
+            ],
+            "wp:attached-to": [
+              {
+                "embeddable": true,
+                "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/project/1100",
+                "id": 1100,
+                "post_type": "project"
+              }
+            ]
+          },
+          "alt_text": "Cold Turkey Cape Town electronic music event crowd",
+          "author": 1,
+          "caption": {
+            "rendered": "\t\t<div class=\"more-link-holder\">\n\t\t\t<a class=\"more-link\" href=\"https://photo.madsnorgaard.net/proj/cold-turkey-cape-town/cold_turkey_best_small_020/\">read more <i class=\"fa fa-angle-right\"></i></a>\n\t\t</div>"
+          },
+          "featured_media": 0,
+          "id": 1110,
+          "link": "https://photo.madsnorgaard.net/proj/cold-turkey-cape-town/cold_turkey_best_small_020/",
+          "media_details": {
+            "file": "2018/07/Cold_Turkey_best_SMALL_020.jpg",
+            "height": 533,
+            "image_meta": {
+              "aperture": "1.8",
+              "camera": "Canon EOS 5D Mark II",
+              "caption": "",
+              "copyright": "",
+              "created_timestamp": "1333309057",
+              "credit": "",
+              "focal_length": "35",
+              "iso": "4000",
+              "keywords": [],
+              "orientation": "0",
+              "shutter_speed": "0.005",
+              "title": ""
+            },
+            "sizes": {
+              "full": {
+                "file": "Cold_Turkey_best_SMALL_020.jpg",
+                "height": 533,
+                "mime_type": "image/jpeg",
+                "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2018/07/Cold_Turkey_best_SMALL_020.jpg",
+                "width": 800
+              },
+              "mauer_stills_thumb_1": {
+                "file": "Cold_Turkey_best_SMALL_020-780x520.jpg",
+                "height": 520,
+                "mime_type": "image/jpeg",
+                "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2018/07/Cold_Turkey_best_SMALL_020-780x520.jpg",
+                "width": 780
+              },
+              "mauer_stills_thumb_3": {
+                "file": "Cold_Turkey_best_SMALL_020-624x416.jpg",
+                "height": 416,
+                "mime_type": "image/jpeg",
+                "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2018/07/Cold_Turkey_best_SMALL_020-624x416.jpg",
+                "width": 624
+              },
+              "mauer_stills_thumb_4": {
+                "file": "Cold_Turkey_best_SMALL_020-586x390.jpg",
+                "height": 390,
+                "mime_type": "image/jpeg",
+                "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2018/07/Cold_Turkey_best_SMALL_020-586x390.jpg",
+                "width": 586
+              },
+              "mauer_stills_thumb_5": {
+                "file": "Cold_Turkey_best_SMALL_020-420x280.jpg",
+                "height": 280,
+                "mime_type": "image/jpeg",
+                "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2018/07/Cold_Turkey_best_SMALL_020-420x280.jpg",
+                "width": 420
+              },
+              "medium": {
+                "file": "Cold_Turkey_best_SMALL_020-300x200.jpg",
+                "height": 200,
+                "mime_type": "image/jpeg",
+                "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2018/07/Cold_Turkey_best_SMALL_020-300x200.jpg",
+                "width": 300
+              },
+              "medium_large": {
+                "file": "Cold_Turkey_best_SMALL_020-768x512.jpg",
+                "height": 512,
+                "mime_type": "image/jpeg",
+                "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2018/07/Cold_Turkey_best_SMALL_020-768x512.jpg",
+                "width": 768
+              },
+              "thumbnail": {
+                "file": "Cold_Turkey_best_SMALL_020-150x150.jpg",
+                "height": 150,
+                "mime_type": "image/jpeg",
+                "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2018/07/Cold_Turkey_best_SMALL_020-150x150.jpg",
+                "width": 150
+              }
+            },
+            "width": 800
+          },
+          "media_type": "image",
+          "mime_type": "image/jpeg",
+          "slug": "cold_turkey_best_small_020",
+          "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2018/07/Cold_Turkey_best_SMALL_020.jpg",
+          "title": {
+            "rendered": "Cold_Turkey_best_SMALL_020"
+          },
+          "type": "attachment"
+        }
+      ]
+    },
+    "_links": {
+      "about": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/types/project"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/project"
+        }
+      ],
+      "curies": [
+        {
+          "href": "https://api.w.org/{rel}",
+          "name": "wp",
+          "templated": true
+        }
+      ],
+      "predecessor-version": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/project/1100/revisions/1464",
+          "id": 1464
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/comments?post=1100"
+        }
+      ],
+      "self": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/project/1100"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 10,
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/project/1100/revisions"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/media?parent=1100"
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "embeddable": true,
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/media/1110"
+        }
+      ]
+    },
+    "id": 1100,
+    "slug": "cold-turkey-cape-town",
+    "title": {
+      "rendered": "Cold Turkey Cape Town"
+    }
+  },
+  {
+    "_embedded": {
+      "wp:featuredmedia": [
+        {
+          "_links": {
+            "about": [
+              {
+                "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/types/attachment"
+              }
+            ],
+            "author": [
+              {
+                "embeddable": true,
+                "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/users/1"
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/media"
+              }
+            ],
+            "curies": [
+              {
+                "href": "https://api.w.org/{rel}",
+                "name": "wp",
+                "templated": true
+              }
+            ],
+            "replies": [
+              {
+                "embeddable": true,
+                "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/comments?post=1187"
+              }
+            ],
+            "self": [
+              {
+                "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/media/1187"
+              }
+            ],
+            "wp:attached-to": [
+              {
+                "embeddable": true,
+                "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/project/1064",
+                "id": 1064,
+                "post_type": "project"
+              }
+            ]
+          },
+          "alt_text": "Handspring Puppet Company Cape Town workshop and artists",
+          "author": 1,
+          "caption": {
+            "rendered": "\t\t<div class=\"more-link-holder\">\n\t\t\t<a class=\"more-link\" href=\"https://photo.madsnorgaard.net/proj/handspring-puppet-company-cape-town/high-life-lr-0016/\">read more <i class=\"fa fa-angle-right\"></i></a>\n\t\t</div>"
+          },
+          "featured_media": 0,
+          "id": 1187,
+          "link": "https://photo.madsnorgaard.net/proj/handspring-puppet-company-cape-town/high-life-lr-0016/",
+          "media_details": {
+            "file": "2018/08/High-life-LR-0016.jpg",
+            "height": 640,
+            "image_meta": {
+              "aperture": "0",
+              "camera": "",
+              "caption": "",
+              "copyright": "",
+              "created_timestamp": "0",
+              "credit": "",
+              "focal_length": "0",
+              "iso": "0",
+              "keywords": [],
+              "orientation": "0",
+              "shutter_speed": "0",
+              "title": ""
+            },
+            "sizes": {
+              "full": {
+                "file": "High-life-LR-0016.jpg",
+                "height": 640,
+                "mime_type": "image/jpeg",
+                "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2018/08/High-life-LR-0016.jpg",
+                "width": 960
+              },
+              "mauer_stills_thumb_1": {
+                "file": "High-life-LR-0016-780x520.jpg",
+                "height": 520,
+                "mime_type": "image/jpeg",
+                "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2018/08/High-life-LR-0016-780x520.jpg",
+                "width": 780
+              },
+              "mauer_stills_thumb_2": {
+                "file": "High-life-LR-0016-892x595.jpg",
+                "height": 595,
+                "mime_type": "image/jpeg",
+                "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2018/08/High-life-LR-0016-892x595.jpg",
+                "width": 892
+              },
+              "mauer_stills_thumb_3": {
+                "file": "High-life-LR-0016-624x416.jpg",
+                "height": 416,
+                "mime_type": "image/jpeg",
+                "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2018/08/High-life-LR-0016-624x416.jpg",
+                "width": 624
+              },
+              "mauer_stills_thumb_4": {
+                "file": "High-life-LR-0016-586x391.jpg",
+                "height": 391,
+                "mime_type": "image/jpeg",
+                "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2018/08/High-life-LR-0016-586x391.jpg",
+                "width": 586
+              },
+              "mauer_stills_thumb_5": {
+                "file": "High-life-LR-0016-420x280.jpg",
+                "height": 280,
+                "mime_type": "image/jpeg",
+                "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2018/08/High-life-LR-0016-420x280.jpg",
+                "width": 420
+              },
+              "medium": {
+                "file": "High-life-LR-0016-300x200.jpg",
+                "height": 200,
+                "mime_type": "image/jpeg",
+                "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2018/08/High-life-LR-0016-300x200.jpg",
+                "width": 300
+              },
+              "medium_large": {
+                "file": "High-life-LR-0016-768x512.jpg",
+                "height": 512,
+                "mime_type": "image/jpeg",
+                "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2018/08/High-life-LR-0016-768x512.jpg",
+                "width": 768
+              },
+              "thumbnail": {
+                "file": "High-life-LR-0016-150x150.jpg",
+                "height": 150,
+                "mime_type": "image/jpeg",
+                "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2018/08/High-life-LR-0016-150x150.jpg",
+                "width": 150
+              }
+            },
+            "width": 960
+          },
+          "media_type": "image",
+          "mime_type": "image/jpeg",
+          "slug": "high-life-lr-0016",
+          "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2018/08/High-life-LR-0016.jpg",
+          "title": {
+            "rendered": "High life LR-0016"
+          },
+          "type": "attachment"
+        }
+      ]
+    },
+    "_links": {
+      "about": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/types/project"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/project"
+        }
+      ],
+      "curies": [
+        {
+          "href": "https://api.w.org/{rel}",
+          "name": "wp",
+          "templated": true
+        }
+      ],
+      "predecessor-version": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/project/1064/revisions/1425",
+          "id": 1425
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/comments?post=1064"
+        }
+      ],
+      "self": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/project/1064"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 5,
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/project/1064/revisions"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/media?parent=1064"
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "embeddable": true,
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/media/1187"
+        }
+      ]
+    },
+    "id": 1064,
+    "slug": "handspring-puppet-company-cape-town",
+    "title": {
+      "rendered": "Handspring Puppet Company Cape Town"
+    }
+  },
+  {
+    "_embedded": {
+      "wp:featuredmedia": [
+        {
+          "_links": {
+            "about": [
+              {
+                "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/types/attachment"
+              }
+            ],
+            "author": [
+              {
+                "embeddable": true,
+                "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/users/1"
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/media"
+              }
+            ],
+            "curies": [
+              {
+                "href": "https://api.w.org/{rel}",
+                "name": "wp",
+                "templated": true
+              }
+            ],
+            "replies": [
+              {
+                "embeddable": true,
+                "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/comments?post=1135"
+              }
+            ],
+            "self": [
+              {
+                "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/media/1135"
+              }
+            ],
+            "wp:attached-to": [
+              {
+                "embeddable": true,
+                "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/project/1128",
+                "id": 1128,
+                "post_type": "project"
+              }
+            ]
+          },
+          "alt_text": "",
+          "author": 1,
+          "caption": {
+            "rendered": "<p>The morning of a funeral. Family is standing ready to go to the cemetary for the unvelling of a tombstone and funeral, Eldorado Park 2015.</p>\n\t\t<div class=\"more-link-holder\">\n\t\t\t<a class=\"more-link\" href=\"https://photo.madsnorgaard.net/proj/johannesburg-documentary-photography/copyright-mads-norgaard-www-madsnorgaard-net-copyright-14/\">read more <i class=\"fa fa-angle-right\"></i></a>\n\t\t</div>"
+          },
+          "featured_media": 0,
+          "id": 1135,
+          "link": "https://photo.madsnorgaard.net/proj/johannesburg-documentary-photography/copyright-mads-norgaard-www-madsnorgaard-net-copyright-14/",
+          "media_details": {},
+          "media_type": "image",
+          "mime_type": "image/jpeg",
+          "slug": "copyright-mads-norgaard-www-madsnorgaard-net-copyright-14",
+          "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2018/07/Johannesburg-mads-norgaard-0005.jpg",
+          "title": {
+            "rendered": "Copyright © Mads Norgaard &#8211; www.madsnorgaard.net/copyright"
+          },
+          "type": "attachment"
+        }
+      ]
+    },
+    "_links": {
+      "about": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/types/project"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/project"
+        }
+      ],
+      "curies": [
+        {
+          "href": "https://api.w.org/{rel}",
+          "name": "wp",
+          "templated": true
+        }
+      ],
+      "predecessor-version": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/project/1128/revisions/1427",
+          "id": 1427
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/comments?post=1128"
+        }
+      ],
+      "self": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/project/1128"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 6,
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/project/1128/revisions"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/media?parent=1128"
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "embeddable": true,
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/media/1135"
+        }
+      ]
+    },
+    "id": 1128,
+    "slug": "johannesburg-documentary-photography",
+    "title": {
+      "rendered": "Johannesburg: Intimate Photography of City, Weddings and Family"
+    }
+  }
+]

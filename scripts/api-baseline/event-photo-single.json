@@ -1,0 +1,318 @@
+{
+  "_embedded": {
+    "wp:featuredmedia": [
+      {
+        "_links": {
+          "about": [
+            {
+              "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/types/attachment"
+            }
+          ],
+          "collection": [
+            {
+              "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/media"
+            }
+          ],
+          "curies": [
+            {
+              "href": "https://api.w.org/{rel}",
+              "name": "wp",
+              "templated": true
+            }
+          ],
+          "replies": [
+            {
+              "embeddable": true,
+              "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/comments?post=1466"
+            }
+          ],
+          "self": [
+            {
+              "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/media/1466"
+            }
+          ],
+          "wp:attached-to": [
+            {
+              "embeddable": true,
+              "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/event-photos/1465",
+              "id": 1465,
+              "post_type": "event_photo"
+            }
+          ]
+        },
+        "alt_text": "",
+        "author": 0,
+        "caption": {
+          "rendered": "\t\t<div class=\"more-link-holder\">\n\t\t\t<a class=\"more-link\" href=\"https://photo.madsnorgaard.net/event-photo/cold-turkey-27-may-2012-01/cold-turkey-27-may-2012-01-2/\">read more <i class=\"fa fa-angle-right\"></i></a>\n\t\t</div>"
+        },
+        "featured_media": 0,
+        "id": 1466,
+        "link": "https://photo.madsnorgaard.net/event-photo/cold-turkey-27-may-2012-01/cold-turkey-27-may-2012-01-2/",
+        "media_details": {
+          "file": "2026/06/Cold-Turkey-27-May-2012-01.jpg",
+          "filesize": 1119829,
+          "height": 1707,
+          "image_meta": {
+            "alt": "",
+            "aperture": "1.8",
+            "camera": "Canon EOS 40D",
+            "caption": "",
+            "copyright": "",
+            "created_timestamp": "1338132739",
+            "credit": "",
+            "focal_length": "35",
+            "iso": "800",
+            "keywords": [],
+            "orientation": "0",
+            "shutter_speed": "0.016666666666667",
+            "title": ""
+          },
+          "sizes": {
+            "1536x1536": {
+              "file": "Cold-Turkey-27-May-2012-01-1536x1024.jpg",
+              "filesize": 273812,
+              "height": 1024,
+              "mime_type": "image/jpeg",
+              "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2026/06/Cold-Turkey-27-May-2012-01-1536x1024.jpg",
+              "width": 1536
+            },
+            "2048x2048": {
+              "file": "Cold-Turkey-27-May-2012-01-2048x1366.jpg",
+              "filesize": 439738,
+              "height": 1366,
+              "mime_type": "image/jpeg",
+              "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2026/06/Cold-Turkey-27-May-2012-01-2048x1366.jpg",
+              "width": 2048
+            },
+            "full": {
+              "file": "Cold-Turkey-27-May-2012-01.jpg",
+              "height": 1707,
+              "mime_type": "image/jpeg",
+              "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2026/06/Cold-Turkey-27-May-2012-01.jpg",
+              "width": 2560
+            },
+            "large": {
+              "file": "Cold-Turkey-27-May-2012-01-1024x683.jpg",
+              "filesize": 156278,
+              "height": 683,
+              "mime_type": "image/jpeg",
+              "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2026/06/Cold-Turkey-27-May-2012-01-1024x683.jpg",
+              "width": 1024
+            },
+            "mauer_stills_thumb_1": {
+              "file": "Cold-Turkey-27-May-2012-01-780x520.jpg",
+              "filesize": 113885,
+              "height": 520,
+              "mime_type": "image/jpeg",
+              "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2026/06/Cold-Turkey-27-May-2012-01-780x520.jpg",
+              "width": 780
+            },
+            "mauer_stills_thumb_2": {
+              "file": "Cold-Turkey-27-May-2012-01-892x595.jpg",
+              "filesize": 132679,
+              "height": 595,
+              "mime_type": "image/jpeg",
+              "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2026/06/Cold-Turkey-27-May-2012-01-892x595.jpg",
+              "width": 892
+            },
+            "mauer_stills_thumb_3": {
+              "file": "Cold-Turkey-27-May-2012-01-624x416.jpg",
+              "filesize": 90450,
+              "height": 416,
+              "mime_type": "image/jpeg",
+              "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2026/06/Cold-Turkey-27-May-2012-01-624x416.jpg",
+              "width": 624
+            },
+            "mauer_stills_thumb_4": {
+              "file": "Cold-Turkey-27-May-2012-01-586x391.jpg",
+              "filesize": 85893,
+              "height": 391,
+              "mime_type": "image/jpeg",
+              "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2026/06/Cold-Turkey-27-May-2012-01-586x391.jpg",
+              "width": 586
+            },
+            "mauer_stills_thumb_5": {
+              "file": "Cold-Turkey-27-May-2012-01-420x280.jpg",
+              "filesize": 64541,
+              "height": 280,
+              "mime_type": "image/jpeg",
+              "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2026/06/Cold-Turkey-27-May-2012-01-420x280.jpg",
+              "width": 420
+            },
+            "mauer_stills_thumb_6": {
+              "file": "Cold-Turkey-27-May-2012-01-1440x960.jpg",
+              "filesize": 248431,
+              "height": 960,
+              "mime_type": "image/jpeg",
+              "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2026/06/Cold-Turkey-27-May-2012-01-1440x960.jpg",
+              "width": 1440
+            },
+            "mauer_stills_thumb_7": {
+              "file": "Cold-Turkey-27-May-2012-01-2100x1400.jpg",
+              "filesize": 459314,
+              "height": 1400,
+              "mime_type": "image/jpeg",
+              "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2026/06/Cold-Turkey-27-May-2012-01-2100x1400.jpg",
+              "width": 2100
+            },
+            "medium": {
+              "file": "Cold-Turkey-27-May-2012-01-300x200.jpg",
+              "filesize": 51742,
+              "height": 200,
+              "mime_type": "image/jpeg",
+              "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2026/06/Cold-Turkey-27-May-2012-01-300x200.jpg",
+              "width": 300
+            },
+            "medium_large": {
+              "file": "Cold-Turkey-27-May-2012-01-768x512.jpg",
+              "filesize": 111946,
+              "height": 512,
+              "mime_type": "image/jpeg",
+              "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2026/06/Cold-Turkey-27-May-2012-01-768x512.jpg",
+              "width": 768
+            },
+            "thumbnail": {
+              "file": "Cold-Turkey-27-May-2012-01-150x150.jpg",
+              "filesize": 41469,
+              "height": 150,
+              "mime_type": "image/jpeg",
+              "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2026/06/Cold-Turkey-27-May-2012-01-150x150.jpg",
+              "width": 150
+            }
+          },
+          "width": 2560
+        },
+        "media_type": "image",
+        "mime_type": "image/jpeg",
+        "slug": "cold-turkey-27-may-2012-01-2",
+        "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2026/06/Cold-Turkey-27-May-2012-01.jpg",
+        "title": {
+          "rendered": "Cold-Turkey-27-May-2012-01"
+        },
+        "type": "attachment"
+      }
+    ],
+    "wp:term": [
+      [
+        {
+          "_links": {
+            "about": [
+              {
+                "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/taxonomies/event_set"
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/event-sets"
+              }
+            ],
+            "curies": [
+              {
+                "href": "https://api.w.org/{rel}",
+                "name": "wp",
+                "templated": true
+              }
+            ],
+            "self": [
+              {
+                "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/event-sets/95"
+              }
+            ],
+            "up": [
+              {
+                "embeddable": true,
+                "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/event-sets/94"
+              }
+            ],
+            "wp:post_type": [
+              {
+                "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/event-photos?event-sets=95"
+              },
+              {
+                "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/event-notes?event-sets=95"
+              }
+            ]
+          },
+          "id": 95,
+          "link": "https://photo.madsnorgaard.net/event-set/cold-turkey-cape-town-2012-05-27-cold-turkey-at-amadoda-braai/",
+          "name": "2012-05-27 - Amadoda Braai",
+          "slug": "cold-turkey-cape-town-2012-05-27-cold-turkey-at-amadoda-braai",
+          "taxonomy": "event_set"
+        }
+      ]
+    ]
+  },
+  "_links": {
+    "about": [
+      {
+        "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/types/event_photo"
+      }
+    ],
+    "collection": [
+      {
+        "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/event-photos"
+      }
+    ],
+    "curies": [
+      {
+        "href": "https://api.w.org/{rel}",
+        "name": "wp",
+        "templated": true
+      }
+    ],
+    "self": [
+      {
+        "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/event-photos/1465"
+      }
+    ],
+    "wp:attachment": [
+      {
+        "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/media?parent=1465"
+      }
+    ],
+    "wp:featuredmedia": [
+      {
+        "embeddable": true,
+        "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/media/1466"
+      }
+    ],
+    "wp:term": [
+      {
+        "embeddable": true,
+        "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/event-sets?post=1465",
+        "taxonomy": "event_set"
+      }
+    ]
+  },
+  "class_list": [
+    "post-1465",
+    "event_photo",
+    "type-event_photo",
+    "status-publish",
+    "has-post-thumbnail",
+    "hentry",
+    "event_set-cold-turkey-cape-town-2012-05-27-cold-turkey-at-amadoda-braai"
+  ],
+  "event-sets": [
+    95
+  ],
+  "featured_media": 1466,
+  "guid": {
+    "rendered": "https://photo.madsnorgaard.net/event-photo/cold-turkey-27-may-2012-01/"
+  },
+  "id": 1465,
+  "link": "https://photo.madsnorgaard.net/event-photo/cold-turkey-27-may-2012-01/",
+  "meta": {
+    "_monsterinsights_skip_tracking": false,
+    "capture_date": "2012-05-27T15:32:19+00:00",
+    "like_count": 0,
+    "there_count": 0
+  },
+  "slug": "cold-turkey-27-may-2012-01",
+  "status": "publish",
+  "template": "",
+  "title": {
+    "rendered": "Cold-Turkey-27-May-2012-01"
+  },
+  "type": "event_photo"
+}

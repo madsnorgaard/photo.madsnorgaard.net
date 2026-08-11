@@ -61,3 +61,4 @@ wp-content/themes/twentytwentythree/
 # to composer.json with the ACF private package repo.
 # See README: ACF Pro upgrade path.
 wp-content/debug.log
+scripts/api-current/

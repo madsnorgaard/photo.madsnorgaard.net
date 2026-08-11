@@ -1,0 +1,197 @@
+[
+  {
+    "_links": {
+      "about": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/taxonomies/post_tag"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/tags"
+        }
+      ],
+      "curies": [
+        {
+          "href": "https://api.w.org/{rel}",
+          "name": "wp",
+          "templated": true
+        }
+      ],
+      "self": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/tags/5"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/posts?tags=5"
+        }
+      ]
+    },
+    "count": 0,
+    "description": "",
+    "id": 5,
+    "link": "https://photo.madsnorgaard.net/tag/architecture/",
+    "meta": [],
+    "name": "architecture",
+    "slug": "architecture",
+    "taxonomy": "post_tag"
+  },
+  {
+    "_links": {
+      "about": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/taxonomies/post_tag"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/tags"
+        }
+      ],
+      "curies": [
+        {
+          "href": "https://api.w.org/{rel}",
+          "name": "wp",
+          "templated": true
+        }
+      ],
+      "self": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/tags/8"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/posts?tags=8"
+        }
+      ]
+    },
+    "count": 0,
+    "description": "",
+    "id": 8,
+    "link": "https://photo.madsnorgaard.net/tag/eye-contact/",
+    "meta": [],
+    "name": "eye contact",
+    "slug": "eye-contact",
+    "taxonomy": "post_tag"
+  },
+  {
+    "_links": {
+      "about": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/taxonomies/post_tag"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/tags"
+        }
+      ],
+      "curies": [
+        {
+          "href": "https://api.w.org/{rel}",
+          "name": "wp",
+          "templated": true
+        }
+      ],
+      "self": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/tags/9"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/posts?tags=9"
+        }
+      ]
+    },
+    "count": 0,
+    "description": "",
+    "id": 9,
+    "link": "https://photo.madsnorgaard.net/tag/fashion/",
+    "meta": [],
+    "name": "fashion",
+    "slug": "fashion",
+    "taxonomy": "post_tag"
+  },
+  {
+    "_links": {
+      "about": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/taxonomies/post_tag"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/tags"
+        }
+      ],
+      "curies": [
+        {
+          "href": "https://api.w.org/{rel}",
+          "name": "wp",
+          "templated": true
+        }
+      ],
+      "self": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/tags/10"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/posts?tags=10"
+        }
+      ]
+    },
+    "count": 1,
+    "description": "",
+    "id": 10,
+    "link": "https://photo.madsnorgaard.net/tag/film/",
+    "meta": [],
+    "name": "film",
+    "slug": "film",
+    "taxonomy": "post_tag"
+  },
+  {
+    "_links": {
+      "about": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/taxonomies/post_tag"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/tags"
+        }
+      ],
+      "curies": [
+        {
+          "href": "https://api.w.org/{rel}",
+          "name": "wp",
+          "templated": true
+        }
+      ],
+      "self": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/tags/12"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/posts?tags=12"
+        }
+      ]
+    },
+    "count": 0,
+    "description": "",
+    "id": 12,
+    "link": "https://photo.madsnorgaard.net/tag/narrative/",
+    "meta": [],
+    "name": "narrative",
+    "slug": "narrative",
+    "taxonomy": "post_tag"
+  }
+]
