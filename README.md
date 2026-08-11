@@ -199,5 +199,8 @@ Everything version-pinned, everything watched — merging PRs is the whole job:
 - **Admin access**: `/member` + `/wp-admin` sit behind Traefik basic auth
   (`WP_ADMIN_BASIC_AUTH` htpasswd entry in `.env`) — proxy-level protection
   replaced Wordfence 2026-08-11; bots never reach the login form.
+  Rotate the passphrase any time with `scripts/rotate-admin-auth.sh`
+  (`--generate` for a random one); it hashes server-side, handles the
+  compose `$$`-escaping, recreates the container, and self-tests.
 - **Before merging any backend change**, run the API contract harness:
   `bash scripts/api-snapshot.sh <base-url> scripts/api-current && diff -ru scripts/api-baseline scripts/api-current`
