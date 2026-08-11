@@ -2,7 +2,7 @@
 
 Documentary photography archive. WordPress REST API backend (this repo) with a headless Nuxt 3 frontend at `madsnorgaard.net` (separate repo, in progress).
 
-**Stack:** WordPress 6.x · PHP 8.4 · MySQL 8.0 · DDEV local dev · Docker on VPS2 production
+**Stack:** WordPress 7.x (headless: REST + uploads + wp-admin only) · PHP 8.4 · MySQL 8.0 · DDEV local dev · Docker on VPS2 production
 
 ---
 
@@ -37,15 +37,8 @@ Not committed to git. Installed automatically by `composer install`.
 
 | Plugin | Composer package |
 |--------|-----------------|
-| Akismet | `wpackagist-plugin/akismet` |
-| Autoptimize | `wpackagist-plugin/autoptimize` |
-| Contact Form 7 | `wpackagist-plugin/contact-form-7` |
-| Google Analytics (MonsterInsights) | `wpackagist-plugin/google-analytics-for-wordpress` |
-| Google Captcha | `wpackagist-plugin/google-captcha` |
 | Intuitive CPT Order | `wpackagist-plugin/intuitive-custom-post-order` |
-| Rank Math SEO | `wpackagist-plugin/seo-by-rank-math` |
 | Wordfence | `wpackagist-plugin/wordfence` |
-| WP Super Cache | `wpackagist-plugin/wp-super-cache` |
 | WPS Hide Login | `wpackagist-plugin/wps-hide-login` |
 
 Add a WP.org plugin:
@@ -69,39 +62,21 @@ Committed to `wp-content/plugins/`.
 
 | Plugin | Reason |
 |--------|--------|
-| `photo-archive-cpts` | Custom CPTs (photos, stories, projects) |
+| `photo-archive-cpts` | Custom CPTs (photos, stories, projects) + native photo meta |
 | `photo-archive-blocks` | Custom Gutenberg blocks |
 | `photo-api-security` | REST API hardening |
-| `mauer-stills-gallery` | Premium Mauer Themes plugin |
-| `mauer-stills-portfolio` | Premium Mauer Themes plugin |
-| `advanced-custom-fields-pro` | Premium — see ACF upgrade below |
-| `photection` | Premium image protection |
+| `event-archive` | Event photo wall endpoints (likes, guestbook, /top) |
+| `mauer-stills-gallery` | Premium gallery filters — kept: its markup feeds the Nuxt /proj parser |
 
-#### ACF Pro upgrade path
+#### Headless cutover (2026-08-11)
 
-ACF 5.7.13 runs with PHP 8.4/WP 6.9 deprecations suppressed via `mu-plugins/suppress-acf5-notices.php`.
-To upgrade to 6.x via Composer:
-
-1. Get your key from `https://www.advancedcustomfields.com/my-account/`
-2. Add to `composer.json`:
-   ```json
-   "repositories": [
-     { "type": "composer", "url": "https://connect.advancedcustomfields.com" }
-   ],
-   "require": {
-     "wpengine/advanced-custom-fields-pro": "^6.0"
-   },
-   "extra": {
-     "installer-paths": {
-       "wp-content/plugins/{$name}/": ["type:wordpress-plugin"]
-     }
-   }
-   ```
-3. Add `ACF_PRO_KEY=your-key` to `.env` and add it to `web_environment` in `.ddev/config.yaml`
-4. Run `ddev composer install`
-5. Remove old plugin from git: `git rm -r --cached wp-content/plugins/advanced-custom-fields-pro`
-6. Add `wp-content/plugins/advanced-custom-fields-pro/` to `.gitignore`
-7. Delete `wp-content/mu-plugins/suppress-acf5-notices.php`
+The mauer-stills theme, ACF Pro 5.7.13, and all front-end-only plugins
+(autoptimize, CF7, MonsterInsights, google-captcha, Rank Math, WP Super
+Cache, akismet, photection, mauer-stills-portfolio, bulk-block-converter)
+were removed. Photo metadata is native `register_post_meta`
+(photo-archive-cpts ≥1.3.0); the `project` CPT is registered there too.
+All public HTML routes 301 to madsnorgaard.net via
+`mu-plugins/headless-redirect.php` (map: `docs/headless-cutover-audit.md`).
 
 ---
 
@@ -109,10 +84,8 @@ To upgrade to 6.x via Composer:
 
 | Theme | Status |
 |-------|--------|
-| `mauer-stills` | Parent theme — purchased, committed to git |
-| `mauer-stills-child` | Child theme — custom gallery CSS overrides |
-| `photo-archive` | Custom archive theme |
-| `twentytwenty*` | Default WP themes — gitignored, not needed |
+| `photo-archive` | **Active** — minimal FSE theme (public HTML is redirected anyway) |
+| `twentytwenty*` | Default WP themes — gitignored fallback |
 
 ---
 
@@ -152,7 +125,7 @@ Base: `https://photo.madsnorgaard.net/wp-json/wp/v2`
 
 All endpoints are public (read-only). Use `_embed=true` for featured media.
 
-ACF meta on photos: `archive_number`, `location`, `date_taken` (Y-m-d), `camera`.
+Native registered meta on photos: `archive_number`, `location`, `date_taken` (Y-m-d), `camera`.
 
 CORS origins allowed: `https://madsnorgaard.net`, `http://localhost:3000`, `http://localhost:3001`.
 
@@ -204,7 +177,7 @@ docker compose run --rm cli wp cache flush
 
 ## Security
 
-- Never commit `.env`, database credentials, or ACF Pro license keys
+- Never commit `.env` or database credentials
 - WP-CLI Application Passwords: admin only
 - XML-RPC permanently blocked at application level
 - REST API rate-limited, user enumeration blocked
