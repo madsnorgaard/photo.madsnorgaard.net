@@ -1,0 +1,82 @@
+name: Security audit
+
+# Weekly check that the WP stack has no outstanding updates:
+#  - composer (wpackagist plugins) outdated check
+#  - newer pinned wordpress image tag available on Docker Hub
+# Failures open/update a pinned issue instead of silently going red.
+# Optional: add a WPSCAN_API_TOKEN repo secret to also query the WPScan
+# vulnerability database for each installed plugin.
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    env:
+      WPSCAN_API_TOKEN: ${{ secrets.WPSCAN_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.4"
+
+      - name: Install dependencies
+        run: composer install --no-dev --no-interaction --prefer-dist --quiet
+
+      - name: Check for outdated plugins
+        id: outdated
+        run: |
+          {
+            echo "## Outdated composer plugins"
+            if composer outdated --direct --strict --no-interaction 2>/dev/null; then
+              echo "None — all up to date."
+            else
+              echo "outdated=true" >> "$GITHUB_OUTPUT"
+            fi
+          } | tee -a report.md
+
+      - name: Check for newer WordPress image tag
+        id: image
+        run: |
+          PINNED=$(grep -oE 'wordpress:[0-9]+\.[0-9]+(\.[0-9]+)?-php8\.4-apache' docker-compose.yml | head -1 | sed -E 's/wordpress:|-php8\.4-apache//g')
+          LATEST=$(curl -s "https://registry.hub.docker.com/v2/repositories/library/wordpress/tags/?page_size=100&name=php8.4-apache" \
+            | jq -r '.results[].name' | grep -E '^[0-9]+\.[0-9]+(\.[0-9]+)?-php8\.4-apache$' | sed 's/-php8\.4-apache//' | sort -V | tail -1)
+          echo "pinned=$PINNED latest=$LATEST" | tee -a report.md
+          if [ -n "$LATEST" ] && [ "$PINNED" != "$LATEST" ] && [ "$(printf '%s\n%s' "$PINNED" "$LATEST" | sort -V | tail -1)" = "$LATEST" ]; then
+            echo "newer=true" >> "$GITHUB_OUTPUT"
+            echo "**Newer WordPress image available: $LATEST (pinned: $PINNED)**" >> report.md
+          fi
+
+      - name: Query WPScan vulnerability DB (optional)
+        if: env.WPSCAN_API_TOKEN != ''
+        run: |
+          echo "## WPScan known vulnerabilities" >> report.md
+          jq -r '.packages[].name | select(startswith("wpackagist-plugin/")) | sub("wpackagist-plugin/";"")' composer.lock \
+          | while read -r slug; do
+              resp=$(curl -s -H "Authorization: Token token=$WPSCAN_API_TOKEN" "https://wpscan.com/api/v3/plugins/$slug" || true)
+              count=$(echo "$resp" | jq -r --arg s "$slug" '.[$s].vulnerabilities | length' 2>/dev/null || echo 0)
+              [ "$count" != "0" ] && [ "$count" != "null" ] && echo "- **$slug**: $count known vulnerabilities (check fixed_in vs installed version)" >> report.md
+            done
+          true
+
+      - name: Open or update tracking issue
+        if: steps.outdated.outputs.outdated == 'true' || steps.image.outputs.newer == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TITLE="Security audit: updates available"
+          BODY=$(printf 'Automated weekly audit (%s).\n\n%s\n\nMerge the corresponding Dependabot PRs, or run `ddev composer update` and push.' "$(date -u +%F)" "$(cat report.md)")
+          EXISTING=$(gh issue list --state open --search "in:title \"$TITLE\"" --json number --jq '.[0].number')
+          if [ -n "$EXISTING" ]; then
+            gh issue comment "$EXISTING" --body "$BODY"
+          else
+            gh issue create --title "$TITLE" --body "$BODY"
+          fi
