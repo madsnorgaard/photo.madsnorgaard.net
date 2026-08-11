@@ -12,7 +12,6 @@
         "wpackagist-plugin/google-analytics-for-wordpress": "*",
         "wpackagist-plugin/google-captcha": "*",
         "wpackagist-plugin/seo-by-rank-math": "*",
-        "wpackagist-plugin/wordfence": "*",
         "wpackagist-plugin/wp-super-cache": "*",
         "wpackagist-plugin/wps-hide-login": "*"
     },

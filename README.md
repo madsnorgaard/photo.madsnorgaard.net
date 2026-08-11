@@ -38,7 +38,6 @@ Not committed to git. Installed automatically by `composer install`.
 | Plugin | Composer package |
 |--------|-----------------|
 | Intuitive CPT Order | `wpackagist-plugin/intuitive-custom-post-order` |
-| Wordfence | `wpackagist-plugin/wordfence` |
 | WPS Hide Login | `wpackagist-plugin/wps-hide-login` |
 
 Add a WP.org plugin:
@@ -197,7 +196,8 @@ Everything version-pinned, everything watched — merging PRs is the whole job:
 - **WP core minors** self-apply in production inside the `wp_html` volume
   (e.g. the 7.0.2 image self-updated to 7.0.3); the image pin governs the
   PHP runtime and fresh volumes.
-- **Wordfence**: enable email alerts in wp-admin (Wordfence → All Options →
-  Email Alert Preferences: vulnerability found + admin logins).
+- **Admin access**: `/member` + `/wp-admin` sit behind Traefik basic auth
+  (`WP_ADMIN_BASIC_AUTH` htpasswd entry in `.env`) — proxy-level protection
+  replaced Wordfence 2026-08-11; bots never reach the login form.
 - **Before merging any backend change**, run the API contract harness:
   `bash scripts/api-snapshot.sh <base-url> scripts/api-current && diff -ru scripts/api-baseline scripts/api-current`
