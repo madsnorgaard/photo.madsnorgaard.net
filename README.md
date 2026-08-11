@@ -208,3 +208,23 @@ docker compose run --rm cli wp cache flush
 - WP-CLI Application Passwords: admin only
 - XML-RPC permanently blocked at application level
 - REST API rate-limited, user enumeration blocked
+
+## Updates & CVE tracking
+
+Everything version-pinned, everything watched — merging PRs is the whole job:
+
+- **Dependabot (weekly, Mondays)** opens PRs for: composer plugins
+  (wpackagist, majors included — plugin majors carry security fixes), the
+  pinned `wordpress:` image tags in `docker-compose.yml`, and GitHub Actions.
+- **`security-audit.yml` (weekly, Mondays)** double-checks `composer outdated`
+  and Docker Hub for a newer WordPress tag; anything found opens/updates a
+  pinned issue titled "Security audit: updates available". Optionally add a
+  `WPSCAN_API_TOKEN` repo secret (free tier: wpscan.com) to also cross-check
+  installed plugins against the WPScan vulnerability database.
+- **WP core minors** self-apply in production inside the `wp_html` volume
+  (e.g. the 7.0.2 image self-updated to 7.0.3); the image pin governs the
+  PHP runtime and fresh volumes.
+- **Wordfence**: enable email alerts in wp-admin (Wordfence → All Options →
+  Email Alert Preferences: vulnerability found + admin logins).
+- **Before merging any backend change**, run the API contract harness:
+  `bash scripts/api-snapshot.sh <base-url> scripts/api-current && diff -ru scripts/api-baseline scripts/api-current`

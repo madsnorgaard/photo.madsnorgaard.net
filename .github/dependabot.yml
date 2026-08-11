@@ -7,12 +7,20 @@ updates:
       day: "monday"
     open-pull-requests-limit: 5
 
+  # WP plugins via wpackagist. Majors are NOT ignored: WordPress plugin
+  # "majors" (Wordfence 8→9 etc.) routinely carry security fixes, and the
+  # API-contract harness (scripts/api-snapshot.sh) makes merging cheap.
   - package-ecosystem: "composer"
     directory: "/"
     schedule:
       interval: "weekly"
       day: "monday"
     open-pull-requests-limit: 5
-    ignore:
-      - dependency-name: "*"
-        update-types: ["version-update:semver-major"]
+
+  # Pinned wordpress image tags in docker-compose.yml (core + cli).
+  - package-ecosystem: "docker-compose"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
