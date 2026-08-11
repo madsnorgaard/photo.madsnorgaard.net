@@ -3,7 +3,7 @@
  * Plugin Name: Photo Archive CPTs
  * Plugin URI: https://photo.madsnorgaard.net
  * Description: Registers the Photo and Story custom post types for the documentary archive.
- * Version: 1.2.0
+ * Version: 1.3.0
  * Author: Mads Nørgaard
  * Text Domain: photo-archive-cpts
  */
@@ -131,62 +131,121 @@ function pac_register_subject_taxonomy(): void {
 add_action( 'init', 'pac_register_subject_taxonomy' );
 
 /**
- * Register ACF field group for Photo metadata.
- * Falls back gracefully if ACF is not active.
+ * Photo metadata as native registered meta (no ACF).
+ *
+ * ACF 5.x used to define these four fields and surface them in REST via a
+ * get_fields() merge; the keys and storage are identical plain wp_postmeta
+ * rows, so this registration is drop-in data-compatible. The Nuxt frontend
+ * reads meta.archive_number / location / date_taken / camera.
  */
-function pac_register_acf_fields(): void {
-    if ( ! function_exists( 'acf_add_local_field_group' ) ) {
+function pac_sanitize_date_taken( $value ): string {
+    $value = is_string( $value ) ? trim( $value ) : '';
+    return preg_match( '/^\d{4}-\d{2}-\d{2}$/', $value ) ? $value : '';
+}
+
+function pac_register_photo_meta(): void {
+    $auth = static function ( $allowed, $meta_key, $object_id ) {
+        return current_user_can( 'edit_post', $object_id );
+    };
+
+    register_post_meta( 'photo', 'archive_number', [
+        'type'              => 'integer',
+        'single'            => true,
+        'show_in_rest'      => true,
+        'sanitize_callback' => 'absint',
+        'auth_callback'     => $auth,
+    ] );
+    register_post_meta( 'photo', 'location', [
+        'type'              => 'string',
+        'single'            => true,
+        'show_in_rest'      => true,
+        'sanitize_callback' => 'sanitize_text_field',
+        'auth_callback'     => $auth,
+    ] );
+    register_post_meta( 'photo', 'date_taken', [
+        'type'              => 'string',
+        'single'            => true,
+        'show_in_rest'      => true,
+        'sanitize_callback' => 'pac_sanitize_date_taken',
+        'auth_callback'     => $auth,
+    ] );
+    register_post_meta( 'photo', 'camera', [
+        'type'              => 'string',
+        'single'            => true,
+        'show_in_rest'      => true,
+        'sanitize_callback' => 'sanitize_text_field',
+        'auth_callback'     => $auth,
+    ] );
+}
+add_action( 'init', 'pac_register_photo_meta' );
+
+/**
+ * Admin metabox for the photo metadata (replaces the ACF field group UI).
+ */
+function pac_add_photo_metabox(): void {
+    add_meta_box( 'pac_photo_metadata', __( 'Photo Metadata', 'photo-archive-cpts' ), 'pac_render_photo_metabox', 'photo', 'normal', 'high' );
+}
+add_action( 'add_meta_boxes_photo', 'pac_add_photo_metabox' );
+
+function pac_render_photo_metabox( \WP_Post $post ): void {
+    wp_nonce_field( 'pac_photo_meta', 'pac_photo_meta_nonce' );
+    $archive_number = get_post_meta( $post->ID, 'archive_number', true );
+    $location       = get_post_meta( $post->ID, 'location', true );
+    $date_taken     = get_post_meta( $post->ID, 'date_taken', true );
+    $camera         = get_post_meta( $post->ID, 'camera', true );
+    ?>
+    <p>
+        <label for="pac_archive_number"><strong><?php esc_html_e( 'Archive Number', 'photo-archive-cpts' ); ?></strong></label><br>
+        <input type="number" id="pac_archive_number" name="pac_archive_number" min="1" step="1" required
+               value="<?php echo esc_attr( $archive_number ); ?>">
+        <span class="description"><?php esc_html_e( 'Sequential archive number (e.g. 001, 042). Displayed prominently in the ledger.', 'photo-archive-cpts' ); ?></span>
+    </p>
+    <p>
+        <label for="pac_location"><strong><?php esc_html_e( 'Location', 'photo-archive-cpts' ); ?></strong></label><br>
+        <input type="text" id="pac_location" name="pac_location" class="regular-text"
+               value="<?php echo esc_attr( $location ); ?>">
+        <span class="description"><?php esc_html_e( 'Where the photograph was taken (e.g. "Kabul, Afghanistan")', 'photo-archive-cpts' ); ?></span>
+    </p>
+    <p>
+        <label for="pac_date_taken"><strong><?php esc_html_e( 'Date Taken', 'photo-archive-cpts' ); ?></strong></label><br>
+        <input type="date" id="pac_date_taken" name="pac_date_taken"
+               value="<?php echo esc_attr( $date_taken ); ?>">
+    </p>
+    <p>
+        <label for="pac_camera"><strong><?php esc_html_e( 'Camera', 'photo-archive-cpts' ); ?></strong></label><br>
+        <input type="text" id="pac_camera" name="pac_camera" class="regular-text"
+               value="<?php echo esc_attr( $camera ); ?>">
+        <span class="description"><?php esc_html_e( 'Camera and/or film used', 'photo-archive-cpts' ); ?></span>
+    </p>
+    <?php
+}
+
+function pac_save_photo_metabox( int $post_id ): void {
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+        return;
+    }
+    if ( ! isset( $_POST['pac_photo_meta_nonce'] ) || ! wp_verify_nonce( $_POST['pac_photo_meta_nonce'], 'pac_photo_meta' ) ) {
+        return;
+    }
+    if ( ! current_user_can( 'edit_post', $post_id ) ) {
         return;
     }
 
-    acf_add_local_field_group( [
-        'key'      => 'group_photo_metadata',
-        'title'    => 'Photo Metadata',
-        'fields'   => [
-            [
-                'key'           => 'field_archive_number',
-                'label'         => 'Archive Number',
-                'name'          => 'archive_number',
-                'type'          => 'number',
-                'instructions'  => 'Sequential archive number (e.g. 001, 042). Displayed prominently in the ledger.',
-                'required'      => 1,
-                'min'           => 1,
-                'step'          => 1,
-            ],
-            [
-                'key'           => 'field_photo_location',
-                'label'         => 'Location',
-                'name'          => 'location',
-                'type'          => 'text',
-                'instructions'  => 'Where the photograph was taken (e.g. "Kabul, Afghanistan")',
-                'required'      => 0,
-            ],
-            [
-                'key'           => 'field_date_taken',
-                'label'         => 'Date Taken',
-                'name'          => 'date_taken',
-                'type'          => 'date_picker',
-                'display_format' => 'Y',
-                'return_format'  => 'Y-m-d',
-                'required'      => 0,
-            ],
-            [
-                'key'           => 'field_camera',
-                'label'         => 'Camera',
-                'name'          => 'camera',
-                'type'          => 'text',
-                'instructions'  => 'Camera and/or film used',
-                'required'      => 0,
-            ],
-        ],
-        'location' => [
-            [ [ 'param' => 'post_type', 'operator' => '==', 'value' => 'photo' ] ],
-        ],
-        'style'       => 'seamless',
-        'label_placement' => 'top',
-    ] );
+    $fields = [
+        'archive_number' => absint( $_POST['pac_archive_number'] ?? 0 ),
+        'location'       => sanitize_text_field( wp_unslash( $_POST['pac_location'] ?? '' ) ),
+        'date_taken'     => pac_sanitize_date_taken( wp_unslash( $_POST['pac_date_taken'] ?? '' ) ),
+        'camera'         => sanitize_text_field( wp_unslash( $_POST['pac_camera'] ?? '' ) ),
+    ];
+    foreach ( $fields as $key => $value ) {
+        if ( $value === '' || $value === 0 ) {
+            delete_post_meta( $post_id, $key );
+        } else {
+            update_post_meta( $post_id, $key, $value );
+        }
+    }
 }
-add_action( 'acf/init', 'pac_register_acf_fields' );
+add_action( 'save_post_photo', 'pac_save_photo_metabox' );
 
 /**
  * Add structured block data to story REST responses.
@@ -321,7 +380,7 @@ function pac_collect_photo_ids( array $blocks_data ): array {
 
 /**
  * Resolve an array of photo post IDs into a map of photo data
- * with image URLs and ACF metadata.
+ * with image URLs and photo metadata.
  *
  * @param int[] $photo_ids Photo post IDs.
  * @return array Associative array keyed by photo ID.
@@ -372,23 +431,53 @@ function pac_resolve_photos( array $photo_ids ): array {
 }
 
 /**
- * Expose ACF fields in the REST API response for a given post type.
+ * Register the 'project' CPT + 'project_cat' taxonomy when mauer-stills-portfolio
+ * is gone (headless cutover). Args are copied verbatim from that plugin so the
+ * REST shape (/wp/v2/project, rewrite slug 'proj') is identical. While the
+ * mauer plugin is active (it registers at init 0/10, we run at 15) these
+ * guards make this a no-op, so the handoff is a pure plugin deactivation.
  */
-function pac_merge_acf_into_meta( \WP_REST_Response $response, \WP_Post $post ): \WP_REST_Response {
-    if ( ! function_exists( 'get_fields' ) ) {
-        return $response;
+function pac_register_project_fallback(): void {
+    if ( ! post_type_exists( 'project' ) ) {
+        register_post_type( 'project', [
+            'labels'             => [
+                'name'          => __( 'Portfolio', 'photo-archive-cpts' ),
+                'singular_name' => __( 'Portfolio', 'photo-archive-cpts' ),
+                'menu_name'     => __( 'Portfolio', 'photo-archive-cpts' ),
+                'add_new_item'  => __( 'Add New Project', 'photo-archive-cpts' ),
+                'edit_item'     => __( 'Edit Project', 'photo-archive-cpts' ),
+                'all_items'     => __( 'All Projects', 'photo-archive-cpts' ),
+            ],
+            'public'             => true,
+            'publicly_queryable' => true,
+            'show_ui'            => true,
+            'show_in_menu'       => true,
+            'query_var'          => true,
+            'rewrite'            => [ 'slug' => 'proj' ],
+            'has_archive'        => true,
+            'hierarchical'       => false,
+            'menu_position'      => 5,
+            'supports'           => [ 'title', 'editor', 'thumbnail', 'comments', 'revisions' ],
+            'show_in_rest'       => true,
+        ] );
     }
-    $fields = get_fields( $post->ID );
-    if ( $fields ) {
-        $response->data['meta'] = array_merge(
-            $response->data['meta'] ?? [],
-            $fields
-        );
+    if ( ! taxonomy_exists( 'project_cat' ) ) {
+        register_taxonomy( 'project_cat', [ 'project' ], [
+            'labels'            => [
+                'name'          => __( 'Project Categories', 'photo-archive-cpts' ),
+                'singular_name' => __( 'Project Category', 'photo-archive-cpts' ),
+                'menu_name'     => __( 'Project Categories', 'photo-archive-cpts' ),
+            ],
+            'show_ui'           => true,
+            'hierarchical'      => true,
+            'show_admin_column' => true,
+            'query_var'         => true,
+            'rewrite'           => [ 'slug' => 'proj-cat' ],
+            'sort'              => true,
+        ] );
     }
-    return $response;
 }
-add_filter( 'rest_prepare_photo', 'pac_merge_acf_into_meta', 10, 2 );
-add_filter( 'rest_prepare_story', 'pac_merge_acf_into_meta', 10, 2 );
+add_action( 'init', 'pac_register_project_fallback', 15 );
 
 /**
  * Enable REST API for the project_cat taxonomy (registered by mauer-stills-portfolio).
