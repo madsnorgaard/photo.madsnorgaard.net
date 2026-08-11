@@ -56,9 +56,23 @@ services:
        - traefik.http.routers.photo_madsnorgaard_wordpress.rule=Host(`${WORDPRESS_DOMAIN}`) || Host(`www.${WORDPRESS_DOMAIN}`)
        - traefik.http.routers.photo_madsnorgaard_wordpress.tls=true
        - traefik.http.routers.photo_madsnorgaard_wordpress.tls.certresolver=lets-encrypt
-       # Per-service CSP — WordPress needs unsafe-inline/unsafe-eval for Gutenberg admin
-       - "traefik.http.middlewares.photo-csp.headers.contentSecurityPolicy=default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://analytics.theazanianprepper.online; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://analytics.theazanianprepper.online; media-src 'self' https:; frame-src 'self' https:; frame-ancestors 'self'; base-uri 'self'; upgrade-insecure-requests"
+       # Per-service CSP — WordPress needs unsafe-inline/unsafe-eval for Gutenberg admin.
+       # blob: is required since WP 7: the block editor renders its canvas in a
+       # blob:-URL iframe (frame-src), media upload processing runs in a blob:
+       # Worker (worker-src), and media-library previews are blob: object URLs
+       # (img-src/media-src). Without it wp-admin shows a blank grey editor canvas.
+       - "traefik.http.middlewares.photo-csp.headers.contentSecurityPolicy=default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://analytics.theazanianprepper.online; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https://analytics.theazanianprepper.online; media-src 'self' blob: https:; frame-src 'self' blob: https:; worker-src 'self' blob:; frame-ancestors 'self'; base-uri 'self'; upgrade-insecure-requests"
        - "traefik.http.routers.photo_madsnorgaard_wordpress.middlewares=photo-csp"
+       # Admin surface behind proxy-level basic auth: bots and exploit probes
+       # never reach a line of PHP. Replaces Wordfence's login heuristics.
+       # WP_ADMIN_BASIC_AUTH = htpasswd entry in .env (generate:
+       # `htpasswd -nbB admin 'passphrase'`). MUST be set before deploying.
+       - "traefik.http.routers.photo_wp_admin.rule=(Host(`${WORDPRESS_DOMAIN}`) || Host(`www.${WORDPRESS_DOMAIN}`)) && (PathPrefix(`/wp-admin`) || PathPrefix(`/member`) || Path(`/wp-login.php`))"
+       - "traefik.http.routers.photo_wp_admin.priority=100"
+       - "traefik.http.routers.photo_wp_admin.tls=true"
+       - "traefik.http.routers.photo_wp_admin.tls.certresolver=lets-encrypt"
+       - "traefik.http.middlewares.photo-admin-auth.basicauth.users=${WP_ADMIN_BASIC_AUTH}"
+       - "traefik.http.routers.photo_wp_admin.middlewares=photo-admin-auth,photo-csp"
      networks:
        - internal
        - web
