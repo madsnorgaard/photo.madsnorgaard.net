@@ -78,9 +78,7 @@ snap event-photos "/wp-json/wp/v2/event-photos?per_page=3&orderby=id&order=asc&_
 [ -n "$EVENT_PHOTO_ID" ] && snap event-photo-single "/wp-json/wp/v2/event-photos/$EVENT_PHOTO_ID?_embed"
 snap event-sets "/wp-json/wp/v2/event-sets?per_page=5&orderby=id&order=asc"
 snap event-notes "/wp-json/wp/v2/event-notes?per_page=3&_fields=id,meta"
-# Prod predates the /top deploy (returns rest_no_route until Phase 1 ships);
-# tighten this to the array-only assert once deployed.
-snap event-top "/wp-json/event-archive/v1/top?count=3" '(.ids | type == "array") or (.code == "rest_no_route")'
+snap event-top "/wp-json/event-archive/v1/top?count=3" '.ids | type == "array"'
 
 if [ "$FAIL" -ne 0 ]; then
   echo "SNAPSHOT FAILED — contract assertions broken (see FAIL lines above)"
