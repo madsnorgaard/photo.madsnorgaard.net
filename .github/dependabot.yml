@@ -18,9 +18,16 @@ updates:
     open-pull-requests-limit: 5
 
   # Pinned wordpress image tags in docker-compose.yml (core + cli).
+  # MySQL is excluded beyond patches: DB upgrades need a deliberate datadir
+  # migration plan, and Dependabot has proposed nonsense targets (8.0 → 26.7).
   - package-ecosystem: "docker-compose"
     directory: "/"
     schedule:
       interval: "weekly"
       day: "monday"
     open-pull-requests-limit: 5
+    ignore:
+      - dependency-name: "mysql"
+        update-types:
+          - "version-update:semver-major"
+          - "version-update:semver-minor"
