@@ -141,6 +141,82 @@
           },
           "type": "attachment"
         }
+      ],
+      "wp:term": [
+        [
+          {
+            "_links": {
+              "about": [
+                {
+                  "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/taxonomies/project_cat"
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/project-categories"
+                }
+              ],
+              "curies": [
+                {
+                  "href": "https://api.w.org/{rel}",
+                  "name": "wp",
+                  "templated": true
+                }
+              ],
+              "self": [
+                {
+                  "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/project-categories/15"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/project?project-categories=15"
+                }
+              ]
+            },
+            "id": 15,
+            "link": "https://photo.madsnorgaard.net/proj-cat/documentary/",
+            "name": "Documentary",
+            "slug": "documentary",
+            "taxonomy": "project_cat"
+          },
+          {
+            "_links": {
+              "about": [
+                {
+                  "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/taxonomies/project_cat"
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/project-categories"
+                }
+              ],
+              "curies": [
+                {
+                  "href": "https://api.w.org/{rel}",
+                  "name": "wp",
+                  "templated": true
+                }
+              ],
+              "self": [
+                {
+                  "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/project-categories/18"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/project?project-categories=18"
+                }
+              ]
+            },
+            "id": 18,
+            "link": "https://photo.madsnorgaard.net/proj-cat/events/",
+            "name": "Events",
+            "slug": "events",
+            "taxonomy": "project_cat"
+          }
+        ]
       ]
     },
     "_links": {
@@ -193,6 +269,13 @@
         {
           "embeddable": true,
           "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/media/1110"
+        }
+      ],
+      "wp:term": [
+        {
+          "embeddable": true,
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/project-categories?post=1100",
+          "taxonomy": "project_cat"
         }
       ]
     },
@@ -351,6 +434,46 @@
           },
           "type": "attachment"
         }
+      ],
+      "wp:term": [
+        [
+          {
+            "_links": {
+              "about": [
+                {
+                  "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/taxonomies/project_cat"
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/project-categories"
+                }
+              ],
+              "curies": [
+                {
+                  "href": "https://api.w.org/{rel}",
+                  "name": "wp",
+                  "templated": true
+                }
+              ],
+              "self": [
+                {
+                  "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/project-categories/16"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/project?project-categories=16"
+                }
+              ]
+            },
+            "id": 16,
+            "link": "https://photo.madsnorgaard.net/proj-cat/assignments/",
+            "name": "Assignments",
+            "slug": "assignments",
+            "taxonomy": "project_cat"
+          }
+        ]
       ]
     },
     "_links": {
@@ -403,6 +526,13 @@
         {
           "embeddable": true,
           "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/media/1187"
+        }
+      ],
+      "wp:term": [
+        {
+          "embeddable": true,
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/project-categories?post=1064",
+          "taxonomy": "project_cat"
         }
       ]
     },
@@ -478,6 +608,82 @@
           },
           "type": "attachment"
         }
+      ],
+      "wp:term": [
+        [
+          {
+            "_links": {
+              "about": [
+                {
+                  "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/taxonomies/project_cat"
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/project-categories"
+                }
+              ],
+              "curies": [
+                {
+                  "href": "https://api.w.org/{rel}",
+                  "name": "wp",
+                  "templated": true
+                }
+              ],
+              "self": [
+                {
+                  "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/project-categories/15"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/project?project-categories=15"
+                }
+              ]
+            },
+            "id": 15,
+            "link": "https://photo.madsnorgaard.net/proj-cat/documentary/",
+            "name": "Documentary",
+            "slug": "documentary",
+            "taxonomy": "project_cat"
+          },
+          {
+            "_links": {
+              "about": [
+                {
+                  "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/taxonomies/project_cat"
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/project-categories"
+                }
+              ],
+              "curies": [
+                {
+                  "href": "https://api.w.org/{rel}",
+                  "name": "wp",
+                  "templated": true
+                }
+              ],
+              "self": [
+                {
+                  "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/project-categories/18"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/project?project-categories=18"
+                }
+              ]
+            },
+            "id": 18,
+            "link": "https://photo.madsnorgaard.net/proj-cat/events/",
+            "name": "Events",
+            "slug": "events",
+            "taxonomy": "project_cat"
+          }
+        ]
       ]
     },
     "_links": {
@@ -530,6 +736,13 @@
         {
           "embeddable": true,
           "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/media/1135"
+        }
+      ],
+      "wp:term": [
+        {
+          "embeddable": true,
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/project-categories?post=1128",
+          "taxonomy": "project_cat"
         }
       ]
     },
