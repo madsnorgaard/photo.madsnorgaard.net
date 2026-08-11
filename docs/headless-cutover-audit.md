@@ -42,6 +42,16 @@ falls through to the catch-all `301 → https://madsnorgaard.net/`.
   single URLs would be `/archive/{slug}` and `/stories/{slug}` on the apex —
   add `is_singular('photo'|'story')` rules at that point.
 
+## Gallery-gate verdict (2026-08-11)
+
+**`mauer-stills-gallery` stays.** Empirical A/B on project 1100: with the plugin,
+`[gallery]` shortcodes render as full-resolution `<img src>` figures
+(`mauer-stills-gallery-pswp` markup) that the Nuxt `/proj` parser consumes;
+without it, WP's default gallery output (inline-styled `#gallery-1`,
+thumbnail-size images) replaces them — degrading every gallery-bearing
+project page. The plugin is small, self-contained, git-managed, and has no
+ACF or theme coupling. Do NOT remove in Batch B.
+
 ## Google Search Console
 
 After cutover, photo.madsnorgaard.net rankings will transfer via the 301s.
