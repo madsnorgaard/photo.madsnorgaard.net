@@ -1,0 +1,7 @@
+{
+  "code": "rest_no_route",
+  "data": {
+    "status": 404
+  },
+  "message": "No route was found matching the URL and request method."
+}

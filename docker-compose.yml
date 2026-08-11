@@ -25,7 +25,9 @@ services:
    photo_madsnorgaard_wordpress:
      depends_on:
        - photo_madsnorgaard_db
-     image: wordpress:php8.4-apache
+     # Pinned exact tag (Dependabot bumps it). Core still self-applies minor
+     # security updates inside the wp_html volume; the image never downgrades.
+     image: wordpress:7.0.2-php8.4-apache
      restart: always
      environment:
        WORDPRESS_DB_HOST: photo_madsnorgaard_db:3306
@@ -50,7 +52,7 @@ services:
        - web
 
    cli:
-     image: wordpress:cli-php8.4
+     image: wordpress:cli-2.12.0-php8.4
      user: "33:33"
      container_name: ${WORDPRESS_DOMAIN}_cli
      env_file: .env

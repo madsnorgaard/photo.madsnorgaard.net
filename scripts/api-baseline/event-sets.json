@@ -1,0 +1,241 @@
+[
+  {
+    "_links": {
+      "about": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/taxonomies/event_set"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/event-sets"
+        }
+      ],
+      "curies": [
+        {
+          "href": "https://api.w.org/{rel}",
+          "name": "wp",
+          "templated": true
+        }
+      ],
+      "self": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/event-sets/94"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/event-photos?event-sets=94"
+        },
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/event-notes?event-sets=94"
+        }
+      ]
+    },
+    "count": 0,
+    "description": "",
+    "id": 94,
+    "link": "https://photo.madsnorgaard.net/event-set/cold-turkey-cape-town/",
+    "meta": [],
+    "name": "Cold Turkey Cape Town",
+    "parent": 0,
+    "slug": "cold-turkey-cape-town",
+    "taxonomy": "event_set"
+  },
+  {
+    "_links": {
+      "about": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/taxonomies/event_set"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/event-sets"
+        }
+      ],
+      "curies": [
+        {
+          "href": "https://api.w.org/{rel}",
+          "name": "wp",
+          "templated": true
+        }
+      ],
+      "self": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/event-sets/95"
+        }
+      ],
+      "up": [
+        {
+          "embeddable": true,
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/event-sets/94"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/event-photos?event-sets=95"
+        },
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/event-notes?event-sets=95"
+        }
+      ]
+    },
+    "count": 87,
+    "description": "",
+    "id": 95,
+    "link": "https://photo.madsnorgaard.net/event-set/cold-turkey-cape-town-2012-05-27-cold-turkey-at-amadoda-braai/",
+    "meta": [],
+    "name": "2012-05-27 - Amadoda Braai",
+    "parent": 94,
+    "slug": "cold-turkey-cape-town-2012-05-27-cold-turkey-at-amadoda-braai",
+    "taxonomy": "event_set"
+  },
+  {
+    "_links": {
+      "about": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/taxonomies/event_set"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/event-sets"
+        }
+      ],
+      "curies": [
+        {
+          "href": "https://api.w.org/{rel}",
+          "name": "wp",
+          "templated": true
+        }
+      ],
+      "self": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/event-sets/96"
+        }
+      ],
+      "up": [
+        {
+          "embeddable": true,
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/event-sets/94"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/event-photos?event-sets=96"
+        },
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/event-notes?event-sets=96"
+        }
+      ]
+    },
+    "count": 101,
+    "description": "",
+    "id": 96,
+    "link": "https://photo.madsnorgaard.net/event-set/cold-turkey-cape-town-16-september-2012-cold-turkey-cape-town/",
+    "meta": [],
+    "name": "2012-09-16",
+    "parent": 94,
+    "slug": "cold-turkey-cape-town-16-september-2012-cold-turkey-cape-town",
+    "taxonomy": "event_set"
+  },
+  {
+    "_links": {
+      "about": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/taxonomies/event_set"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/event-sets"
+        }
+      ],
+      "curies": [
+        {
+          "href": "https://api.w.org/{rel}",
+          "name": "wp",
+          "templated": true
+        }
+      ],
+      "self": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/event-sets/98"
+        }
+      ],
+      "up": [
+        {
+          "embeddable": true,
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/event-sets/94"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/event-photos?event-sets=98"
+        },
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/event-notes?event-sets=98"
+        }
+      ]
+    },
+    "count": 0,
+    "description": "",
+    "id": 98,
+    "link": "https://photo.madsnorgaard.net/event-set/cold-turkey-cape-town-27-may-2012-cold-turkey-at-amadoda-braai/",
+    "meta": [],
+    "name": "27 May 2012 - Cold Turkey at Amadoda Braai",
+    "parent": 94,
+    "slug": "cold-turkey-cape-town-27-may-2012-cold-turkey-at-amadoda-braai",
+    "taxonomy": "event_set"
+  },
+  {
+    "_links": {
+      "about": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/taxonomies/event_set"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/event-sets"
+        }
+      ],
+      "curies": [
+        {
+          "href": "https://api.w.org/{rel}",
+          "name": "wp",
+          "templated": true
+        }
+      ],
+      "self": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/event-sets/99"
+        }
+      ],
+      "up": [
+        {
+          "embeddable": true,
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/event-sets/94"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/event-photos?event-sets=99"
+        },
+        {
+          "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/event-notes?event-sets=99"
+        }
+      ]
+    },
+    "count": 110,
+    "description": "",
+    "id": 99,
+    "link": "https://photo.madsnorgaard.net/event-set/cold-turkey-cape-town-9-december-2012-cold-turkey-cape-town/",
+    "meta": [],
+    "name": "2012-12-09",
+    "parent": 94,
+    "slug": "cold-turkey-cape-town-9-december-2012-cold-turkey-cape-town",
+    "taxonomy": "event_set"
+  }
+]

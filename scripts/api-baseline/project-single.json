@@ -1,0 +1,227 @@
+{
+  "_embedded": {
+    "wp:featuredmedia": [
+      {
+        "_links": {
+          "about": [
+            {
+              "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/types/attachment"
+            }
+          ],
+          "author": [
+            {
+              "embeddable": true,
+              "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/users/1"
+            }
+          ],
+          "collection": [
+            {
+              "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/media"
+            }
+          ],
+          "curies": [
+            {
+              "href": "https://api.w.org/{rel}",
+              "name": "wp",
+              "templated": true
+            }
+          ],
+          "replies": [
+            {
+              "embeddable": true,
+              "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/comments?post=664"
+            }
+          ],
+          "self": [
+            {
+              "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/media/664"
+            }
+          ],
+          "wp:attached-to": [
+            {
+              "embeddable": true,
+              "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/project/37",
+              "id": 37,
+              "post_type": "project"
+            }
+          ]
+        },
+        "alt_text": "Ayanda Mabulu artist working in Woodstock studio Cape Town, 2013.",
+        "author": 1,
+        "caption": {
+          "rendered": "<p>Ayanda Mabulu artist working in Woodstock studio Cape Town, 2013.</p>\n\t\t<div class=\"more-link-holder\">\n\t\t\t<a class=\"more-link\" href=\"https://photo.madsnorgaard.net/proj/ayanda-mabulu-artist-portraits/ayanda010/\">read more <i class=\"fa fa-angle-right\"></i></a>\n\t\t</div>"
+        },
+        "featured_media": 0,
+        "id": 664,
+        "link": "https://photo.madsnorgaard.net/proj/ayanda-mabulu-artist-portraits/ayanda010/",
+        "media_details": {
+          "file": "2018/03/Ayanda010.jpg",
+          "height": 533,
+          "image_meta": {
+            "aperture": "4",
+            "camera": "Canon EOS 5D Mark II",
+            "caption": "",
+            "copyright": "",
+            "created_timestamp": "1361535257",
+            "credit": "",
+            "focal_length": "50",
+            "iso": "1250",
+            "keywords": [],
+            "orientation": "0",
+            "shutter_speed": "0.005",
+            "title": ""
+          },
+          "sizes": {
+            "full": {
+              "file": "Ayanda010.jpg",
+              "height": 533,
+              "mime_type": "image/jpeg",
+              "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda010.jpg",
+              "width": 800
+            },
+            "mauer_stills_thumb_1": {
+              "file": "Ayanda010-780x520.jpg",
+              "height": 520,
+              "mime_type": "image/jpeg",
+              "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda010-780x520.jpg",
+              "width": 780
+            },
+            "mauer_stills_thumb_3": {
+              "file": "Ayanda010-624x416.jpg",
+              "height": 416,
+              "mime_type": "image/jpeg",
+              "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda010-624x416.jpg",
+              "width": 624
+            },
+            "mauer_stills_thumb_4": {
+              "file": "Ayanda010-586x390.jpg",
+              "height": 390,
+              "mime_type": "image/jpeg",
+              "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda010-586x390.jpg",
+              "width": 586
+            },
+            "mauer_stills_thumb_5": {
+              "file": "Ayanda010-420x280.jpg",
+              "height": 280,
+              "mime_type": "image/jpeg",
+              "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda010-420x280.jpg",
+              "width": 420
+            },
+            "medium": {
+              "file": "Ayanda010-300x200.jpg",
+              "height": 200,
+              "mime_type": "image/jpeg",
+              "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda010-300x200.jpg",
+              "width": 300
+            },
+            "medium_large": {
+              "file": "Ayanda010-768x512.jpg",
+              "height": 512,
+              "mime_type": "image/jpeg",
+              "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda010-768x512.jpg",
+              "width": 768
+            },
+            "thumbnail": {
+              "file": "Ayanda010-150x150.jpg",
+              "height": 150,
+              "mime_type": "image/jpeg",
+              "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda010-150x150.jpg",
+              "width": 150
+            }
+          },
+          "width": 800
+        },
+        "media_type": "image",
+        "mime_type": "image/jpeg",
+        "slug": "ayanda010",
+        "source_url": "https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda010.jpg",
+        "title": {
+          "rendered": "Ayanda010"
+        },
+        "type": "attachment"
+      }
+    ]
+  },
+  "_links": {
+    "about": [
+      {
+        "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/types/project"
+      }
+    ],
+    "collection": [
+      {
+        "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/project"
+      }
+    ],
+    "curies": [
+      {
+        "href": "https://api.w.org/{rel}",
+        "name": "wp",
+        "templated": true
+      }
+    ],
+    "predecessor-version": [
+      {
+        "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/project/37/revisions/1454",
+        "id": 1454
+      }
+    ],
+    "replies": [
+      {
+        "embeddable": true,
+        "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/comments?post=37"
+      }
+    ],
+    "self": [
+      {
+        "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/project/37"
+      }
+    ],
+    "version-history": [
+      {
+        "count": 3,
+        "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/project/37/revisions"
+      }
+    ],
+    "wp:attachment": [
+      {
+        "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/media?parent=37"
+      }
+    ],
+    "wp:featuredmedia": [
+      {
+        "embeddable": true,
+        "href": "https://photo.madsnorgaard.net/wp-json/wp/v2/media/664"
+      }
+    ]
+  },
+  "class_list": [
+    "post-37",
+    "project",
+    "type-project",
+    "status-publish",
+    "has-post-thumbnail",
+    "hentry",
+    "project_cat-assignments",
+    "project_cat-portraits"
+  ],
+  "comment_status": "closed",
+  "content": {
+    "protected": false,
+    "rendered": "\n<p class=\"wp-block-paragraph\">Ayanda Mabulu artist is a self-taught visual artist born in 1981 in the Eastern Cape, South Africa. His work deals in provocation as method, using large-scale paintings built from acrylic paint, oil, gold leaf, textiles and found materials to confront structures of power, violence and exploitation that have shaped South African society before and after the end of apartheid. Since emerging in the early 2010s, his practice has attracted both international acclaim and death threats, making him one of the most polarising figures in contemporary South African visual culture.</p>\n\n\n\n<figure class=\"wp-block-image size-large\"><div class=\"mauer-stills-img-box-wrapper\"><div class=\"mauer-stills-img-box\" style=\"padding-top: 66.625000000175%;  width: 100%;\"><img loading=\"lazy\" decoding=\"async\" width=\"800\" height=\"533\" data-aspect-ratio=\"1.5009380863\" data-thumbnail-aspect-ratio=\"1.5009380863\" src=\"https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda010.jpg\" alt=\"Ayanda Mabulu in studio, Woodstock 2013.\" class=\"wp-image-664\" srcset=\"https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda010.jpg 800w, https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda010-300x200.jpg 300w, https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda010-768x512.jpg 768w, https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda010-780x520.jpg 780w, https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda010-624x416.jpg 624w, https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda010-586x390.jpg 586w, https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda010-420x280.jpg 420w\" sizes=\"auto, (max-width: 800px) 100vw, 800px\" /></div></div></figure>\n\n\n\n<h3 class=\"wp-block-heading\">The Practice and Politics of Ayanda Mabulu Artist</h3>\n\n\n\n<p class=\"wp-block-paragraph\">The paintings are executed in a hyper-realistic style and frequently depict political figures, including former South African president Jacob Zuma, in the nude or in compromising positions. These works have led to censorship, public outcry and direct threats to his safety. The 2012 painting &#8220;Economy Rape,&#8221; which depicted Nelson Mandela being sexually assaulted by Jacob Zuma, provoked a national controversy that went beyond the art world and into mainstream political discourse. The work forced a public conversation about corruption, the betrayal of liberation ideals, and the commodification of the Mandela legacy. The backlash was severe enough that Ayanda Mabulu artist was forced to relocate his studio for safety reasons.</p>\n\n\n\n<figure class=\"wp-block-gallery has-nested-images columns-default is-cropped wp-block-gallery-1 is-layout-flex wp-block-gallery-is-layout-flex\">\n<figure class=\"wp-block-image size-large\"><div class=\"mauer-stills-img-box-wrapper\"><div class=\"mauer-stills-img-box\" style=\"padding-top: 66.625000000175%;  width: 100%;\"><img loading=\"lazy\" decoding=\"async\" width=\"800\" height=\"533\" data-aspect-ratio=\"1.5009380863\" data-thumbnail-aspect-ratio=\"1.5009380863\" data-id=\"668\" src=\"https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda009.jpg\" alt=\"\" class=\"wp-image-668\" srcset=\"https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda009.jpg 800w, https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda009-300x200.jpg 300w, https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda009-768x512.jpg 768w, https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda009-780x520.jpg 780w, https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda009-624x416.jpg 624w, https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda009-586x390.jpg 586w, https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda009-420x280.jpg 420w\" sizes=\"auto, (max-width: 800px) 100vw, 800px\" /></div></div></figure>\n</figure>\n\n\n\n<p class=\"wp-block-paragraph\">But the practice extends well beyond political caricature. The &#8220;Healers&#8221; series celebrates the role of Black women in South African society, depicting figures of maternal strength and spiritual authority rendered in oils and gold leaf. His sculptural work and playwriting explore similar themes of power, identity and the politics of the Black body. The body in his work is never neutral. It is always a site of contest, of violence, of beauty, of resistance. Whether painting a president or a healer, the approach remains the same: unflinching, large-scale, and impossible to walk past without a reaction.</p>\n\n\n\n<h3 class=\"wp-block-heading\">International Recognition</h3>\n\n\n\n<p class=\"wp-block-paragraph\">Since the mid-2010s, the work has gained significant international visibility. In 2018, the DuSable Museum of African American History in Chicago staged a solo exhibition titled &#8220;Troublemaker: Art Is Our Only Hope,&#8221; the first museum show in the United States. The work has been covered by the New York Times, BBC, Al Jazeera and numerous South African publications. At auction, the 2018 acrylic and gold leaf portrait Nontsundu, depicting a woman cradling her sleeping infant in one arm and holding a gun in the other, sold in 2021 for approximately $27,900. He currently lives and works in Johannesburg, based at the Victoria Yards creative hub, and continues to exhibit at galleries including Kalashnikovv Gallery and Everard Read.</p>\n\n\n\n<figure class=\"wp-block-gallery has-nested-images columns-default is-cropped wp-block-gallery-2 is-layout-flex wp-block-gallery-is-layout-flex\">\n<figure class=\"wp-block-image size-large\"><div class=\"mauer-stills-img-box-wrapper\"><div class=\"mauer-stills-img-box\" style=\"padding-top: 150.65913370998%;  width: 100%;\"><img loading=\"lazy\" decoding=\"async\" width=\"531\" height=\"800\" data-aspect-ratio=\"0.66375\" data-thumbnail-aspect-ratio=\"0.66375\" data-id=\"666\" src=\"https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda001.jpg\" alt=\"Ayanda Mabulu artist working in Woodstock studio Cape Town\" class=\"wp-image-666\" srcset=\"https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda001.jpg 531w, https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda001-199x300.jpg 199w, https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda001-389x586.jpg 389w, https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda001-420x633.jpg 420w\" sizes=\"auto, (max-width: 531px) 100vw, 531px\" /></div></div></figure>\n</figure>\n\n\n\n<h3 class=\"wp-block-heading\">Studio Portraits in Woodstock, Cape Town</h3>\n\n\n\n<p class=\"wp-block-paragraph\">These photographs of Ayanda Mabulu artist were made in his studio in Woodstock, Cape Town, in 2013. At the time, Woodstock was still in the early stages of the gentrification that would transform the neighbourhood over the following decade. The studio was a small space surrounded by canvases in various stages of completion. Paint, turpentine and gold leaf covered every surface. Reference materials and brushes were scattered across the work table. The atmosphere was concentrated and physical, a working space rather than a showroom.</p>\n\n\n\n<figure class=\"wp-block-gallery has-nested-images columns-default is-cropped wp-block-gallery-3 is-layout-flex wp-block-gallery-is-layout-flex\">\n<figure class=\"wp-block-image size-large\"><div class=\"mauer-stills-img-box-wrapper\"><div class=\"mauer-stills-img-box\" style=\"padding-top: 66.625000000175%;  width: 100%;\"><img loading=\"lazy\" decoding=\"async\" width=\"800\" height=\"533\" data-aspect-ratio=\"1.5009380863\" data-thumbnail-aspect-ratio=\"1.5009380863\" data-id=\"663\" src=\"https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda005.jpg\" alt=\"\" class=\"wp-image-663\" srcset=\"https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda005.jpg 800w, https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda005-300x200.jpg 300w, https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda005-768x512.jpg 768w, https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda005-780x520.jpg 780w, https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda005-624x416.jpg 624w, https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda005-586x390.jpg 586w, https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda005-420x280.jpg 420w\" sizes=\"auto, (max-width: 800px) 100vw, 800px\" /></div></div></figure>\n\n\n\n<figure class=\"wp-block-image size-large\"><div class=\"mauer-stills-img-box-wrapper\"><div class=\"mauer-stills-img-box\" style=\"padding-top: 66.625000000175%;  width: 100%;\"><img loading=\"lazy\" decoding=\"async\" width=\"800\" height=\"533\" data-aspect-ratio=\"1.5009380863\" data-thumbnail-aspect-ratio=\"1.5009380863\" data-id=\"660\" src=\"https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda002.jpg\" alt=\"\" class=\"wp-image-660\" srcset=\"https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda002.jpg 800w, https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda002-300x200.jpg 300w, https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda002-768x512.jpg 768w, https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda002-780x520.jpg 780w, https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda002-624x416.jpg 624w, https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda002-586x390.jpg 586w, https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda002-420x280.jpg 420w\" sizes=\"auto, (max-width: 800px) 100vw, 800px\" /></div></div></figure>\n</figure>\n\n\n\n<p class=\"wp-block-paragraph\">The photographs capture the artist at work before the major museum shows, the international headlines and the auction results. Before the gallery representation and the media coverage that would follow. This was a painter in a room in a neighbourhood that still felt like it belonged to the people who had been there for decades, making work that carried the weight of a country&#8217;s unfinished reckoning with itself. South Africa in 2013 was nearly two decades into democracy, but the structures of inequality that apartheid had built remained largely intact. The work being made in that studio addressed those structures head-on, with a directness that made people uncomfortable, which was exactly the point.</p>\n\n\n\n<p class=\"wp-block-paragraph\">These images document the beginning of a practice that has since become one of the most significant and provocative in contemporary South African art. They are a record of a moment before the recognition caught up with the work.</p>\n\n\n\n<figure class=\"wp-block-gallery has-nested-images columns-3 is-cropped wp-block-gallery-4 is-layout-flex wp-block-gallery-is-layout-flex\">\n<figure class=\"wp-block-image size-large\"><div class=\"mauer-stills-img-box-wrapper\"><div class=\"mauer-stills-img-box\" style=\"padding-top: 66.625000000175%;  width: 100%;\"><img loading=\"lazy\" decoding=\"async\" width=\"800\" height=\"533\" data-aspect-ratio=\"1.5009380863\" data-thumbnail-aspect-ratio=\"1.5009380863\" data-id=\"662\" src=\"https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda006.jpg\" alt=\"\" class=\"wp-image-662\" srcset=\"https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda006.jpg 800w, https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda006-300x200.jpg 300w, https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda006-768x512.jpg 768w, https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda006-780x520.jpg 780w, https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda006-624x416.jpg 624w, https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda006-586x390.jpg 586w, https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda006-420x280.jpg 420w\" sizes=\"auto, (max-width: 800px) 100vw, 800px\" /></div></div></figure>\n\n\n\n<figure class=\"wp-block-image size-large\"><div class=\"mauer-stills-img-box-wrapper\"><div class=\"mauer-stills-img-box\" style=\"padding-top: 66.625000000175%;  width: 100%;\"><img loading=\"lazy\" decoding=\"async\" width=\"800\" height=\"533\" data-aspect-ratio=\"1.5009380863\" data-thumbnail-aspect-ratio=\"1.5009380863\" data-id=\"667\" src=\"https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda004.jpg\" alt=\"\" class=\"wp-image-667\" srcset=\"https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda004.jpg 800w, https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda004-300x200.jpg 300w, https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda004-768x512.jpg 768w, https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda004-780x520.jpg 780w, https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda004-624x416.jpg 624w, https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda004-586x390.jpg 586w, https://photo.madsnorgaard.net/wp-content/uploads/2018/03/Ayanda004-420x280.jpg 420w\" sizes=\"auto, (max-width: 800px) 100vw, 800px\" /></div></div></figure>\n</figure>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Outbound Links:</strong></p>\n\n\n\n<ul class=\"wp-block-list\">\n<li>Ayanda Mabulu: <a href=\"https://en.wikipedia.org/wiki/Ayanda_Mabulu\" target=\"_blank\" rel=\"noopener\">https://en.wikipedia.org/wiki/Ayanda_Mabulu</a></li>\n\n\n\n<li>DuSable Museum: <a href=\"https://en.wikipedia.org/wiki/DuSable_Museum_of_African_American_History\" target=\"_blank\" rel=\"noopener\">https://en.wikipedia.org/wiki/DuSable_Museum_of_African_American_History</a></li>\n</ul>\n"
+  },
+  "featured_media": 664,
+  "guid": {
+    "rendered": "http://stills.mauer.co/?post_type=project&#038;p=37"
+  },
+  "id": 37,
+  "link": "https://photo.madsnorgaard.net/proj/ayanda-mabulu-artist-portraits/",
+  "ping_status": "closed",
+  "slug": "ayanda-mabulu-artist-portraits",
+  "status": "publish",
+  "template": "",
+  "title": {
+    "rendered": "Ayanda Mabulu Artist &#8211; Extraordinary Studio Portraits"
+  },
+  "type": "project"
+}
