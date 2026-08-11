@@ -45,6 +45,32 @@ if ( ! function_exists( 'media_handle_sideload' ) ) {
     require_once ABSPATH . 'wp-admin/includes/image.php';
 }
 
+// Generate only the sizes the wall uses (thumbnail/medium/large) for these
+// imports - skips the ~7 documentary-theme renditions, so imports are far
+// faster and lighter on disk. Scoped to this run.
+add_filter( 'intermediate_image_sizes_advanced', static function ( $sizes ) {
+    return array_intersect_key( $sizes, array_flip( [ 'thumbnail', 'medium', 'large' ] ) );
+} );
+
+// wp-cli runs as root here, so newly written files would be root-owned and the
+// web server returns 403. chown each imported attachment (+ its sizes) to the
+// web user (www-data = uid/gid 33 on the Debian WP image) so they serve.
+function eva_chown_attachment( int $attach_id ): void {
+    $file = get_attached_file( $attach_id );
+    if ( ! $file ) { return; }
+    @chown( $file, 33 ); @chgrp( $file, 33 );
+    $meta = wp_get_attachment_metadata( $attach_id );
+    if ( ! empty( $meta['sizes'] ) ) {
+        $dir = dirname( $file );
+        foreach ( $meta['sizes'] as $s ) {
+            if ( ! empty( $s['file'] ) ) {
+                @chown( "$dir/{$s['file']}", 33 );
+                @chgrp( "$dir/{$s['file']}", 33 );
+            }
+        }
+    }
+}
+
 $dry_run     = getenv( 'DRY_RUN' ) === '1';
 $import_dir  = rtrim( (string) getenv( 'IMPORT_DIR' ), '/' );
 $event_slug  = getenv( 'EVENT_SLUG' ) ?: ( defined( 'EVA_DEFAULT_EVENT_SLUG' ) ? EVA_DEFAULT_EVENT_SLUG : 'cold-turkey-cape-town' );
@@ -179,6 +205,7 @@ foreach ( $subdirs as $night_dir ) {
         }
 
         set_post_thumbnail( $post_id, $attach_id );
+        eva_chown_attachment( $attach_id ); // make it web-readable (no more 403)
         update_post_meta( $post_id, 'source_filename', $source_name );
         update_post_meta( $post_id, 'like_count', 0 );
         update_post_meta( $post_id, 'there_count', 0 );
