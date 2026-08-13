@@ -73,6 +73,17 @@ services:
        - "traefik.http.routers.photo_wp_admin.tls.certresolver=lets-encrypt"
        - "traefik.http.middlewares.photo-admin-auth.basicauth.users=${WP_ADMIN_BASIC_AUTH}"
        - "traefik.http.routers.photo_wp_admin.middlewares=photo-admin-auth,photo-csp"
+       # Long-lived immutable caching for uploads: WP filenames are unique per
+       # file version (edits get new names), so a year is safe. Dedicated
+       # router because the headers middleware can't be scoped by path.
+       # Priority sits below the admin router (100) and above the base
+       # router's rule-length priority.
+       - "traefik.http.routers.photo_wp_uploads.rule=(Host(`${WORDPRESS_DOMAIN}`) || Host(`www.${WORDPRESS_DOMAIN}`)) && PathPrefix(`/wp-content/uploads`)"
+       - "traefik.http.routers.photo_wp_uploads.priority=90"
+       - "traefik.http.routers.photo_wp_uploads.tls=true"
+       - "traefik.http.routers.photo_wp_uploads.tls.certresolver=lets-encrypt"
+       - "traefik.http.middlewares.photo-uploads-cache.headers.customresponseheaders.Cache-Control=public, max-age=31536000, immutable"
+       - "traefik.http.routers.photo_wp_uploads.middlewares=photo-uploads-cache,photo-csp"
      networks:
        - internal
        - web
