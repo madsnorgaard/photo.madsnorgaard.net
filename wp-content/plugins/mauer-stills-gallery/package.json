@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@wordpress/blob": "^2.1.0",
-    "@wordpress/keycodes": "^2.0.5",
+    "@wordpress/keycodes": "^4.55.0",
     "cgb-scripts": "1.23.1",
     "classnames": "^2.5.1"
   }
