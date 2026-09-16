@@ -8,7 +8,7 @@
     "eject": "cgb-scripts eject"
   },
   "dependencies": {
-    "@wordpress/blob": "^2.1.0",
+    "@wordpress/blob": "^4.55.0",
     "@wordpress/keycodes": "^4.55.0",
     "cgb-scripts": "1.23.1",
     "classnames": "^2.5.1"
