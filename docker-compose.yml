@@ -27,7 +27,7 @@ services:
        - photo_madsnorgaard_db
      # Pinned exact tag (Dependabot bumps it). Core still self-applies minor
      # security updates inside the wp_html volume; the image never downgrades.
-     image: wordpress:7.0.2-php8.4-apache
+     image: wordpress:7.1.3-php8.4-apache
      restart: always
      environment:
        WORDPRESS_DB_HOST: photo_madsnorgaard_db:3306
