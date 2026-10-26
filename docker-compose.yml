@@ -6,7 +6,13 @@ networks:
 
 services:
    photo_madsnorgaard_db:
-     image: mysql:8.0
+     # 8.0 reached end of life on 30 Apr 2026 (8.0.46 is the last build); the 20 Oct 2026
+     # Oracle CPU no longer evaluates it. 8.4 LTS upgrades the data directory in place on
+     # first start. The root and wordpress users still use mysql_native_password, which
+     # 8.4 disables by default, hence the flag; migrate them to caching_sha2_password and
+     # drop the flag before 9.x.
+     image: mysql:8.4
+     command: --mysql-native-password=ON
      volumes:
        - ./wordpress.sql:/docker-entrypoint-initdb.d/init.sql # prepopulate database
        - db_data:/var/lib/mysql # persist database data inside docker storage
